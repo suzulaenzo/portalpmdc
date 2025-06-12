@@ -385,7 +385,8 @@
                     </div>
 
                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
+
                         <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
                     </div>
 
@@ -406,6 +407,64 @@
             <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia.</p>
         </div>
     </footer>
+
+    <script>
+  function toggleAccordion(header) {
+  const content = header.nextElementSibling;
+  const isOpen = content.classList.contains("open");
+
+  // Fecha todos os outros instantaneamente
+  document.querySelectorAll(".accordion-content.open").forEach((otherContent) => {
+    if (otherContent !== content) {
+      otherContent.classList.remove("open");
+      otherContent.style.transition = "none";         // remove transição
+      otherContent.style.height = "0px";
+      otherContent.style.display = "none";
+
+      // força reativação da transição para próximos usos
+      void otherContent.offsetWidth;                  // força reflow
+      otherContent.style.transition = "";             // restaurar transição
+    }
+  });
+
+  // Alterna o accordion clicado
+  if (isOpen) {
+    // FECHAR com animação
+    const currentHeight = content.scrollHeight;
+    content.style.height = currentHeight + "px";
+
+    requestAnimationFrame(() => {
+      content.style.height = "0px";
+    });
+
+    content.addEventListener("transitionend", function handleClose(e) {
+      if (e.propertyName === "height") {
+        content.classList.remove("open");
+        content.style.display = "none";
+        content.removeEventListener("transitionend", handleClose);
+      }
+    });
+  } else {
+    // ABRIR com animação
+    content.style.display = "block";
+    content.style.height = "0px";
+    content.offsetHeight; // força reflow
+
+    const fullHeight = content.scrollHeight + "px";
+    content.style.height = fullHeight;
+    content.classList.add("open");
+
+    content.addEventListener("transitionend", function handleOpen(e) {
+      if (e.propertyName === "height") {
+        content.style.height = "auto";
+        content.removeEventListener("transitionend", handleOpen);
+      }
+    });
+  }
+}
+
+
+</script>
 
     <script src="pesquisa.js"></script>
     <script src="scriptdealtocontraste.js"></script>
