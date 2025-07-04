@@ -840,18 +840,9 @@ h2 {
     padding: 20px;
 }
 
-.text-content-after-cards a,
-.text-dos-botoes a,
-.iss-text-container a {
-    color: #2980b9 !important;
-    text-decoration: underline !important;
-}
-
-.text-content-after-cards p a,
-.text-dos-botoes p a,
-.iss-text-container p a {
-    color: #2980b9 !important;
-    text-decoration: underline !important;
+a, .text-content-after-cards a, .text-dos-botoes a, .iss-text-container a, .text-content-after-cards p a, .text-dos-botoes p a, .iss-text-container p a {
+  color: #2980b9;
+  text-decoration: none;
 }
 
 
