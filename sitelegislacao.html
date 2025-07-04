@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <!-- Desenvolvido por -->
+         <!-- Rafael Mello (github/RafaelLMello) -->
+          <!-- e Enzo Suzula (github/suzulaenzo) -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PMDC - Legislação</title>
+        <link rel="icon" type="image/png" href="img/logofavicon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://vilibras.gov.br/app/vilibras.js"></script>
+        <div id="vlibras">
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        </div>
+    </head>
+<body class="sitelegislacao">
+
+    <nav class="main-menu">
+        <img src="img/logo.png" alt="Logo Duque de Caxias" class="logo">
+        <div class="menu-links">
+            <a href="sitee.html">Página Inicial</a>
+            <a href="sitelegislacao.html">Legislação</a>
+            <a href="siteformularios.html">Formulários</a> 
+            <a href="https://transparencia.duquedecaxias.rj.gov.br/perguntas-frequentes.php?conteudo=75">Perguntas Frequentes</a>
+            <a href="siteplantaofiscal.html">Fale conosco</a>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Legislação</h1>
+    </div>
+
+    <div class="search-container">
+        <form class="search-form" onsubmit="return false;">
+            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <style>
+        .accordion {
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fdfdfd;
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+}
+
+.accordion-header {
+  background-color: #1c638b;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.accordion-header:hover {
+  background-color: #2980b9;
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: none;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+
+.document-entry {
+  display: flex;
+  align-items: baseline;
+}
+
+.document-entry a {
+  font-weight: bold;
+  color: #2980b9;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.document-entry a:hover {
+  text-decoration: underline;
+}
+
+.document-description {
+  color: #000000;
+  font-size: 16px;
+  text-align: justify;
+  flex-grow: 1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.option-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.option-card h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 22.6px;
+  right: 200px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: transparent;
+}
+
+.fake-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .accordion {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
+
+  .accordion-header {
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .accordion-content {
+    text-align: left;
+    padding: 12px;
+  }
+
+  .document-entry {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .document-entry a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2980b9;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .document-description {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .accordion:nth-of-type(2) {
+  margin-top: 40px;
+}
+
+}
+
+      </style>
+    </head>
+    <body>
+    
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Leis gerais</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/DECRETO 6654.pdf" target="_blank" rel="noopener">Decreto 6654 - </a>
+                <div class="document-description">Dispõe sobre disposições legais da norma municipal.</div>
+              </div>
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/2332 - INSTITUI A NOTA FISCAL ELETRONICA (NFS-e).pdf" target="_blank" rel="noopener">Institui a Nota Fiscal Eletrônica - </a>
+                <div class="document-description">Institui a emissão da NFS-e para serviços.</div>
+              </div>
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/2887 - RESPONSABILIDADE TRIBUTARIA (PRODUÇÃO DE PETRÓLEO).pdf" target="_blank" rel="noopener">Responsabilidade Tributária - </a>
+                <div class="document-description">Estabelece normas sobre a responsabilidade tributária.</div>
+              </div>
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/2918 - Domicilio Tributario eletronico.pdf" target="_blank" rel="noopener">Domicílio Tributário Eletrônico - </a>
+                <div class="document-description">Regulamenta o Domicílio Tributário Eletrônico.</div>
+              </div>
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/7185 - DISCIPLINA A UTILIZAÇÃO DO LIVRO FISCAL ELETRONICO (REMAS) Dedução de obras.pdf" target="_blank" rel="noopener">Disciplina a Utilização do Livro Fiscal Eletrônico - </a>
+                <div class="document-description">Disciplina a utilização do Livro Fiscal Eletrônico (REMAS) com dedução de obras.</div>
+              </div>
+              
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/7446 - REGULAMENTA LEI OS DISPOSITIVOS DA LEI 1664 DE 2010 (ISSQN).pdf" target="_blank" rel="noopener">ISSQN - </a>
+                <div class="document-description">Regulamentação da Lei 1664 de 2010, referente ao ISSQN.</div>
+              </div>
+              
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/DTE - CONFIRMACAO DE RECEBIMENTO.pdf" target="_blank" rel="noopener">DTE Confirmação de Recebimento - </a>
+                <div class="document-description">Confirmação de Recebimento do DTE (Documento de Transporte Eletrônico).</div>
+              </div>
+              
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/Lei_1664_CTM_(consolidado_2023).pdf" target="_blank" rel="noopener">Lei 1664 CTM - </a>
+                <div class="document-description">Lei 1664 do Código Tributário Municipal (CTM), versão consolidada de 2023.</div>
+              </div>
+              
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/Port 024-2021 cancelamento de nota.pdf" target="_blank" rel="noopener">Cancelamento de Nota - </a>
+                <div class="document-description">Portaria 024-2021 sobre o cancelamento de notas fiscais.</div>
+              </div>
+              
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/PORTARIA 013 SMF 2020.pdf" target="_blank" rel="noopener">Portaria 013 SMF 2020 - </a>
+                <div class="document-description">Portaria 013 SMF de 2020, abordando o fomento e apoio a empresas.</div>
+              </div>
+            </div>
+          </div>
+              <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Alvará</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/decreto/2016/666/6654/decreto-n-6654-2016-regulamenta-a-concessao-alteracao-paralisacao-e-baixa-de-licenca-e-respectivos-alvaras-assim-compreendidos-o-provisorio-definitivo-transitorio-especial-e-inscricao-eventual-conforme-disposto-no-artigo-135-e-154-da-lei-municipal-1664-2002?q=6.654" target="_blank" rel="noopener">Decreto nº 6.654, de 23 de março de 2016 - </a>
+                <div class="document-description">Regulamenta alvará provisório, definitivo, transitório, especial e eventual</div>
+            </div>
+
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2017/289/2887/lei-ordinaria-n-2887-2017-dispoe-sobre-a-responsabilidade-tributaria-das-empresas-e-organizacoes-que-prestem-servicos-a-cadeia-produtiva-de-petroleo-gas-etanol-energia-e-seus-derivados-no-territorio-do-municipio-de-duque-de-caxias-ainda-que-estabelecidas-em-outro-municipio-e-da-outras-providencias?q=2887" target="_blank" rel="noopener">LEI Nº 1.766, DE 27 DE DEZEMBRO DE 2003 Art 2º a 28 - </a>
+                <div class="document-description">Regulamenta o CTM.</div>
+            </div>
+
+            </div>
+            
+          </div>
+              <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">ISS</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/codigo-tributario-duque-de-caxias-rj" target="_blank" rel="noopener">CTM, Art. 44º ao 83º - </a>
+                <div class="document-description">Estabelece normas sobre lançamento, base de cálculo, isenções, cobranças, arrecadação e fiscalização do IPTU.</div>
+            </div>
+
+              <div class="document-entry">
+                <a class="fake-link" href="http://leismunicipa.is/rsnxh" target="_blank" rel="noopener">LEI Nº 1.766, DE 27 DE DEZEMBRO DE 2003 Art 2º a 28 - </a>
+                <div class="document-description">Regulamenta o CTM.</div>
+            </div>
+
+            </div>
+            
+          </div>
+           <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">IPTU</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/codigo-tributario-duque-de-caxias-rj" target="_blank" rel="noopener">CTM, Art. 44º ao 83º - </a>
+                <div class="document-description">Estabelece normas sobre lançamento, base de cálculo, isenções, cobranças, arrecadação e fiscalização do IPTU.</div>
+            </div>
+
+              <div class="document-entry">
+                <a class="fake-link" href="http://leismunicipa.is/rsnxh" target="_blank" rel="noopener">LEI Nº 1.766, DE 27 DE DEZEMBRO DE 2003 Art 2º a 28 - </a>
+                <div class="document-description">Regulamenta o CTM.</div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="http://leismunicipa.is/rsnxh" target="_blank" rel="noopener">LEI nº 1.554, de 28 de dezembro de 2000 - </a>
+                <div class="document-description">Planta Genérica de Valores.</div>
+            </div>
+
+
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2022/331/3305/lei-ordinaria-n-3305-2022-dispoe-sobre-o-parcelamento-dos-creditos-tributarios-e-nao-tributarios-do-municipio-de-duque-de-caxias?q=PARCELAMENTO%20d%EDvida" target="_blank" rel="noopener">Lei Municipal 3.305/2022 - </a>
+                <div class="document-description">Institui o parcelamento de créditos tributários e não tributários.</div>
+            </div>
+            </div>
+          </div>
+
+           <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">ITBI</div>
+            <div class="accordion-content">
+
+              <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/codigo-tributario-duque-de-caxias-rj" target="_blank" rel="noopener">CTM, Art. 85º ao 103º - </a>
+                <div class="document-description">Estabelece normas sobre lançamento, base de cálculo, isenções, cobranças, arrecadação e fiscalização do IPTU.</div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2011/242/2416/lei-ordinaria-n-2416-2011-concede-isencao-do-imposto-sobre-a-transmissao-de-bens-imoveis-e-de-direitos-a-eles-relativos-realizada-inter-vivos-por-ato-oneroso-itbi-para-a-aquisicao-de-imoveis-oriundos-de-empreendimentos-habitacionais-populares-de-interesse-social-e-de-arrendamento-residencial-vinculados-a-politica-habitacional-municipal-estadual-e-federal?q=2416%2F2011" target="_blank" rel="noopener">Lei nº. 2416/2011 - </a>
+                <div class="document-description">Isenção para empreendimentos populares </div>
+            </div>
+          </div>
+          
+          </div>
+          
+          <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Taxas</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/7185 - DISCIPLINA A UTILIZAÇÃO DO LIVRO FISCAL ELETRONICO (REMAS) Dedução de obras.pdf" target="_blank" rel="noopener">Taxa de Lixo - </a>
+                <div class="document-description">A Taxa de Lixo é cobrada para a coleta e destinação de resíduos.</div>
+              </div>
+              <div class="document-entry">
+                <a class="fake-link" href="pdfs/2918 - Domicilio Tributario eletronico.pdf" target="_blank" rel="noopener">Taxa de Iluminação Pública - </a>
+                <div class="document-description">Regulamenta a Taxa de Iluminação Pública.</div>
+              </div>
+            </div>
+          </div>
+          <hr class="section-divider">
+
+          <div class="text-content-after-cards">
+              <h4 style="margin-bottom: 10px;">Entendendo a Legislação Municipal</h4>
+              <p>A legislação municipal de Duque de Caxias é um conjunto de leis, decretos, portarias e outras normas que regem o funcionamento da cidade e a vida dos seus cidadãos. Compreender essas leis é fundamental para garantir o cumprimento das obrigações e o acesso aos direitos.</p>
+              <br>
+              <h4 style="margin-bottom: 10px;">Importância da Legislação</h4>
+              <p>A legislação é a base para a organização social, econômica e administrativa do município. Ela define as regras para impostos, urbanismo, saúde, educação, meio ambiente, entre outras áreas. Manter-se informado sobre as leis vigentes é essencial para empresas, cidadãos e profissionais de todas as áreas.</p>
+              <br>
+              <h4 style="margin-bottom: 10px;">Onde Acessar e Como Consultar</h4>
+              <p>Você pode acessar a legislação municipal através de diversos canais oficiais, incluindo o Diário Oficial do Município, portais de transparência e os links disponibilizados nesta página. É recomendável consultar sempre as fontes oficiais para ter certeza de que as informações estão atualizadas e corretas.</p>
+          </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CONTEÚDOS</h3>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/ata-registro-preco.php">Ata Registro de Preço</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/autarquias.php">Autarquias</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/portal/index.php/transparencia?id=62">Cadastro de Fornecedores</a>
+                <a href="https://saude.duquedecaxias.rj.gov.br/regulacao-saude.php">Central de Regulação Saúde</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php?conteudo=6339">Conselho Municipal de Saúde</a>
+                <a href="https://portaldatransparencia.gov.br/localidades/3301702-duque-de-caxias">Conv. Governo Federal</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/dados_abertos.php">Dados Abertos</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/despesas.php">Despesas</a>
+                <a href="#">Despesas com recursos da CEDAE</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/divida-ativa.php">Dívida Ativa</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/escolas-municipais.php">Escolas Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/estatisticas-de-acesso.php">Estatísticas de Acesso</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php">Fundos Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/gastos-diarias.php">Gastos com Diárias</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/normativos.php">Leis de Acesso a Informação</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/lgpd.php">LGPD</a>
+            </div>
+            <div class="footer-section">
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/licitacoes.php">Licitações</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/obras-publicas.php">Obras Públicas</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/orcamento.php">Orçamento</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/ouvidoria.php">Ouvidoria</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/patrimonios.php">Patrimônios</a>
+                <a href="https://drive.google.com/drive/folders/1hCABUqbobnUe7A9bq3EW3NbbeYYi5KiN?usp=sharing">PDDE</a>
+                <a href="https://leismunicipais.com.br/prefeitura/rj/duquedecaxias">Pesquisas de Leis</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/prestacao-de-contas.php">Prestação de Contas</a>
+                <a href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html">Radar da Transparência</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/receitas.php">Receitas</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/recursos-financeiros.php">Recursos Financeiros</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/relatorios-lrf.php">Relatórios-LRF</a>
+                <a href="https://fpg.duquedecaxias.rj.gov.br/fpg5/openform.do?sys=FPG&action=openform&formID=8808">Rem. dos Servidores</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/siafic.php">SIAFIC - DECRETO FEDERAL 10.540/20</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/termos-contratos.php">Termos e Contratos</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/unidades-saude.php">Unidades de Saúde</a>
+            </div>
+            <div class="footer-section">
+                <h3>OUTROS PORTAIS</h3>
+                <a href="https://duquedecaxias.rj.gov.br/">Prefeitura Municipal de Duque de Caxias</a>
+                <a href="http://www.portaltransparencia.gov.br/">Governo Federal</a>
+                <a href="http://www.senado.gov.br/transparencia/">Senado</a>
+                <a href="http://www2.camara.leg.br/transparencia/a-transparencia-na-camara">Câmara Federal</a>
+                <a href="http://www.rj.gov.br/web/informacaopublica/">Governo Estadual</a>
+                <a href="http://www.cmdc.rj.gov.br/?page_id=7592">Leis Municipais</a>
+            </div>
+            <div class="footer-section">
+                <h3>FALE CONOSCO</h3>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>plantaofiscal.sefazplan@duquedecaxias.rj.gov.br</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
+
+                        <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                  <p>Segunda - Sexta, 9h - 17h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="institutional-footer">
+            <p>Sede da Prefeitura Municipal de Duque de Caxias - Alameda Esmeralda 206, JD. Primavera, Duque de Caxias / RJ</p>
+            <p>CEP: 25215-260 - TEL: (21) 2773-6200 CNPJ: 29.138.328/0001-50</p>
+        </div>
+
+        <div class="development-credits">
+            <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia.</p>
+        </div>
+    </footer>
+
+    <script src="script/pesquisa.js"></script>
+    <script src="script/scriptdealtocontraste.js"></script>
+    <script>
+  function toggleAccordion(header) {
+  const content = header.nextElementSibling;
+  const isOpen = content.classList.contains("open");
+
+  // Fecha todos os outros instantaneamente
+  document.querySelectorAll(".accordion-content.open").forEach((otherContent) => {
+    if (otherContent !== content) {
+      otherContent.classList.remove("open");
+      otherContent.style.transition = "none";         // remove transição
+      otherContent.style.height = "0px";
+      otherContent.style.display = "none";
+
+      // força reativação da transição para próximos usos
+      void otherContent.offsetWidth;                  // força reflow
+      otherContent.style.transition = "";             // restaurar transição
+    }
+  });
+
+  // Alterna o accordion clicado
+  if (isOpen) {
+    // FECHAR com animação
+    const currentHeight = content.scrollHeight;
+    content.style.height = currentHeight + "px";
+
+    requestAnimationFrame(() => {
+      content.style.height = "0px";
+    });
+
+    content.addEventListener("transitionend", function handleClose(e) {
+      if (e.propertyName === "height") {
+        content.classList.remove("open");
+        content.style.display = "none";
+        content.removeEventListener("transitionend", handleClose);
+      }
+    });
+  } else {
+    // ABRIR com animação
+    content.style.display = "block";
+    content.style.height = "0px";
+    content.offsetHeight; // força reflow
+
+    const fullHeight = content.scrollHeight + "px";
+    content.style.height = fullHeight;
+    content.classList.add("open");
+
+    content.addEventListener("transitionend", function handleOpen(e) {
+      if (e.propertyName === "height") {
+        content.style.height = "auto";
+        content.removeEventListener("transitionend", handleOpen);
+      }
+    });
+  }
+}
+
+
+</script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+            <div class="vw-access-target"></div>
+        </div>
+    </div>
+
+    <script>
+        new window.VLibras.Widget();
+    </script>
+</body>
+</html>
+

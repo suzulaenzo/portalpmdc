@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <!-- Desenvolvido por -->
+         <!-- Rafael Mello (github/RafaelLMello) -->
+          <!-- e Enzo Suzula (github/suzulaenzo) -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PMDC - Certidões</title>
+        
+        <style>
+            .accordion {
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fdfdfd;
+  width: 75%;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+}
+
+.accordion-header {
+  background-color: #1c638b;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.accordion-header:hover {
+  background-color: #2980b9;
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: none;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+
+.document-entry {
+  display: flex;
+  align-items: baseline;
+}
+
+.document-entry a {
+  font-weight: bold;
+  color: #2980b9;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.document-entry a:hover {
+  text-decoration: underline;
+}
+
+.document-description {
+  color: #000000;
+  font-size: 16px;
+  text-align: justify;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .accordion {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
+
+  .accordion-header {
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .accordion-content {
+    text-align: left;
+    padding: 12px;
+  }
+
+  .document-entry {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .document-entry a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2980b9;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .document-description {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .accordion:nth-of-type(2) {
+  margin-top: 40px;
+}
+}
+            @font-face {
+                font-family: 'AaltoSansEssentialLight';
+                src: url('AaltoSansEssential.ttf') format('truetype');
+                font-display: swap;
+            }
+
+            .option-card {
+                position: relative;
+                cursor: pointer;
+            }
+
+            .option-card a.process-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0x;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: inherit;
+                z-index: 1;
+            }
+
+            .option-card i {
+                position: relative;
+                z-index: 2;
+            }
+
+            .option-card h2 {
+                position: relative;
+                z-index: 2;
+            }
+
+            .page-title {
+                background-color: #00AFEF;
+                color: white;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .page-title h1 {
+                font-size: 45px;
+                font-family: 'AaltoSansEssentialLight', Arial, Helvetica, sans-serif !important;
+                font-weight: normal;
+                margin-bottom: 15px;
+                padding-top: 0px;
+            }
+
+            .description {
+                max-width: 1330px;
+                margin: 0 auto;
+                line-height: 1.5;
+                font-size: 16px;
+                padding-bottom: 0px;
+            }
+        </style>
+      
+        <style>
+p > strong {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* sombra leve */
+}
+
+
+ul {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+</style>
+
+        <link rel="icon" type="image/png" href="img/logofavicon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+<body>
+
+    <nav class="main-menu">
+        <img src="img/logo.png" alt="Logo Duque de Caxias" class="logo">
+        <div class="menu-links">
+            <a href="sitee.html">Página Inicial</a>
+            <a href="sitelegislacao.html">Legislação</a>
+            <a href="siteformularios.html">Formulários</a> 
+            <a href="https://transparencia.duquedecaxias.rj.gov.br/perguntas-frequentes.php?conteudo=75">Perguntas Frequentes</a>
+            <a href="siteplantaofiscal.html">Fale conosco</a>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Certidões</h1>
+        <br></br>
+        <div class="description-text">
+        </div>
+    </div>
+
+    <div class="search-container">
+        <form class="search-form" onsubmit="return false;">
+            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+    
+
+    <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">Certidão Online</div>
+            <div class="accordion-content">
+              <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Débitos Fiscais</a>
+                <div class="document-description"></div>
+            </div>
+
+              <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmitirBCI.aspx?m=2982" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão Cadastral Econômica e Imobiliária</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.issnetonline.com.br/duquedecaxias/online/Certidao_Baixa/Certidao_Baixa.aspx" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Baixa de ISS</a>
+                <div class="document-description"></div>
+            </div>
+
+             <div class="document-entry">
+                <a class="fake-link" href="https://www.issnetonline.com.br/duquedecaxias/online/Certidao_Baixa/Certidao_Baixa.aspx" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Baixa de ITBI</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/CertidaoValorVenal.aspx?m=505" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Valor Venal</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Demolição de Construção</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Aprovação de Projeto</a>
+                <div class="document-description"></div>
+            </div>
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Conclusão de Obras (Habite-se)</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Uso e Ocupação do Solo</a>
+                <div class="document-description"></div>
+            </div>
+
+            <div class="document-entry">
+                <a class="fake-link" href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" target="_blank" rel="noopener" style="text-decoration: underline;">Certidão de Dados Cadastrais do Imóvel</a>
+                <div class="document-description"></div>
+            </div>
+            </div>
+          </div>
+
+    <hr class="section-divider">
+
+    <div class="text-content-after-cards">
+        <p>A seção de Certidões do Portal do Contribuinte permite que você acesse e emita diversos tipos de certidões fiscais e cadastrais necessárias para comprovar sua situação junto à Prefeitura de Duque de Caxias. As certidões são documentos oficiais que atestam informações sobre débitos, regularidade fiscal e dados de imóveis ou empresas.</p>
+        <br>
+        <h4>Tipos de Certidões Disponíveis</h4>
+        <p>Aqui você encontrará certidões como: Certidão Negativa de Débitos (para comprovar a ausência de pendências fiscais), Certidão de Baixa de ISS ou ITBI, Certidão de Valor Venal de Imóvel, Certidão Cadastral Econômica e Imobiliária, e outras certidões específicas para aprovação de projetos ou obras. Cada certidão tem sua finalidade e pode ser exigida em diferentes contextos, como compra e venda de imóveis, participação em licitações ou obtenção de financiamentos.</p>
+        <br>
+        <h4>Como Emitir suas Certidões</h4>
+        <p>A emissão da maioria das certidões pode ser feita de forma online, com agilidade e segurança. Para emitir, basta selecionar a certidão desejada e seguir as instruções na tela. É importante ter em mãos os dados necessários, como CPF/CNPJ, inscrição municipal ou código do imóvel. Em caso de dúvidas ou para certidões não disponíveis online, entre em contato com nosso <a href="siteatendimento.html">Atendimento</a> para obter suporte e informações adicionais.</p>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CONTEÚDOS</h3>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/ata-registro-preco.php">Ata Registro de Preço</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/autarquias.php">Autarquias</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/portal/index.php/transparencia?id=62">Cadastro de Fornecedores</a>
+                <a href="https://saude.duquedecaxias.rj.gov.br/regulacao-saude.php">Central de Regulação Saúde</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php?conteudo=6339">Conselho Municipal de Saúde</a>
+                <a href="https://portaldatransparencia.gov.br/localidades/3301702-duque-de-caxias">Conv. Governo Federal</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/dados_abertos.php">Dados Abertos</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/despesas.php">Despesas</a>
+                <a href="#">Despesas com recursos da CEDAE</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/divida-ativa.php">Dívida Ativa</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/escolas-municipais.php">Escolas Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/estatisticas-de-acesso.php">Estatísticas de Acesso</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php">Fundos Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/gastos-diarias.php">Gastos com Diárias</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/normativos.php">Leis de Acesso a Informação</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/lgpd.php">LGPD</a>
+            </div>
+            <div class="footer-section">
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/licitacoes.php">Licitações</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/obras-publicas.php">Obras Públicas</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/orcamento.php">Orçamento</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/ouvidoria.php">Ouvidoria</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/patrimonios.php">Patrimônios</a>
+                <a href="https://drive.google.com/drive/folders/1hCABUqbobnUe7A9bq3EW3NbbeYYi5KiN?usp=sharing">PDDE</a>
+                <a href="https://leismunicipais.com.br/prefeitura/rj/duquedecaxias">Pesquisas de Leis</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/prestacao-de-contas.php">Prestação de Contas</a>
+                <a href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html">Radar da Transparência</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/receitas.php">Receitas</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/recursos-financeiros.php">Recursos Financeiros</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/relatorios-lrf.php">Relatórios-LRF</a>
+                <a href="https://fpg.duquedecaxias.rj.gov.br/fpg5/openform.do?sys=FPG&action=openform&formID=8808">Rem. dos Servidores</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/siafic.php">SIAFIC - DECRETO FEDERAL 10.540/20</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/termos-contratos.php">Termos e Contratos</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/unidades-saude.php">Unidades de Saúde</a>
+            </div>
+            <div class="footer-section">
+                <h3>OUTROS PORTAIS</h3>
+                <a href="https://duquedecaxias.rj.gov.br/">Prefeitura Municipal de Duque de Caxias</a>
+                <a href="http://www.portaltransparencia.gov.br/">Governo Federal</a>
+                <a href="http://www.senado.gov.br/transparencia/">Senado</a>
+                <a href="http://www2.camara.leg.br/transparencia/a-transparencia-na-camara">Câmara Federal</a>
+                <a href="http://www.rj.gov.br/web/informacaopublica/">Governo Estadual</a>
+                <a href="http://www.cmdc.rj.gov.br/?page_id=7592">Leis Municipais</a>
+            </div>
+            <div class="footer-section">
+                <h3>FALE CONOSCO</h3>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>plantaofiscal.sefazplan@duquedecaxias.rj.gov.br</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
+
+                        <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                  <p>Segunda - Sexta, 9h - 17h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="institutional-footer">
+            <p>Sede da Prefeitura Municipal de Duque de Caxias - Alameda Esmeralda 206, JD. Primavera, Duque de Caxias / RJ</p>
+            <p>CEP: 25215-260 - TEL: (21) 2773-6200 CNPJ: 29.138.328/0001-50</p>
+        </div>
+
+        <div class="development-credits">
+            <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia.</p>
+        </div>
+    </footer>
+
+    <script>
+  function toggleAccordion(header) {
+  const content = header.nextElementSibling;
+  const isOpen = content.classList.contains("open");
+
+  // Fecha todos os outros instantaneamente
+  document.querySelectorAll(".accordion-content.open").forEach((otherContent) => {
+    if (otherContent !== content) {
+      otherContent.classList.remove("open");
+      otherContent.style.transition = "none";         // remove transição
+      otherContent.style.height = "0px";
+      otherContent.style.display = "none";
+
+      // força reativação da transição para próximos usos
+      void otherContent.offsetWidth;                  // força reflow
+      otherContent.style.transition = "";             // restaurar transição
+    }
+  });
+
+  // Alterna o accordion clicado
+  if (isOpen) {
+    // FECHAR com animação
+    const currentHeight = content.scrollHeight;
+    content.style.height = currentHeight + "px";
+
+    requestAnimationFrame(() => {
+      content.style.height = "0px";
+    });
+
+    content.addEventListener("transitionend", function handleClose(e) {
+      if (e.propertyName === "height") {
+        content.classList.remove("open");
+        content.style.display = "none";
+        content.removeEventListener("transitionend", handleClose);
+      }
+    });
+  } else {
+    // ABRIR com animação
+    content.style.display = "block";
+    content.style.height = "0px";
+    content.offsetHeight; // força reflow
+
+    const fullHeight = content.scrollHeight + "px";
+    content.style.height = fullHeight;
+    content.classList.add("open");
+
+    content.addEventListener("transitionend", function handleOpen(e) {
+      if (e.propertyName === "height") {
+        content.style.height = "auto";
+        content.removeEventListener("transitionend", handleOpen);
+      }
+    });
+  }
+}
+
+
+</script>
+
+    <script>
+        function filterOptions() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.toLowerCase();
+            const cards = document.querySelectorAll('.option-card');
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search').toLowerCase();
+                if (searchData.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
