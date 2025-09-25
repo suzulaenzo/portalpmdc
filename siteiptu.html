@@ -8,6 +8,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PMDC - IPTU</title>
         
+          <!-- Open Graph (Facebook, LinkedIn etc) -->
+        <meta property="og:title" content="PMDC - Portal do Contribuinte" />
+        <meta property="og:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta property="og:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+        <meta property="og:url" content="https://portalpmdc.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PMDC - Portal do Contribuinte" />
+        <meta name="twitter:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta name="twitter:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+        
         <style>
             @font-face {
                 font-family: 'AaltoSansEssentialLight';
@@ -55,11 +68,7 @@
             }
 
             .page-title h1 {
-                font-size: 45px;
-                font-family: 'AaltoSansEssentialLight', Arial, Helvetica, sans-serif !important;
-                font-weight: normal;
-                margin-bottom: 20px;
-                padding-top: 0px;
+                margin-bottom: 0px;
             }
 
             .description {
@@ -71,19 +80,22 @@
             }
         </style>
         
-        <link rel="icon" type="image/png" href="img/logofavicon.png">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
 <body>
 
     <nav class="main-menu">
-        <img src="img/logo.png" alt="Logo Duque de Caxias" class="logo">
+        <img src="img/logonova.png" alt="Logo Duque de Caxias" class="logo">
+
         <div class="menu-links">
-            <a href="sitee.html">Página Inicial</a>
+            <a href="anistia2025.html">Anistia 2025</a>
+            <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
             <a href="siteformularios.html">Formulários</a> 
-            <a href="https://transparencia.duquedecaxias.rj.gov.br/perguntas-frequentes.php?conteudo=75">Perguntas Frequentes</a>
+            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -104,36 +116,36 @@
     <div class="grid-container" id="optionsGrid">
         <!-- Primeira linha -->
         <div class="option-card" data-search="emitir guias">
-            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmissaoGuia.aspx?" class="process-link" target="_blank">
-                <i class="fas fa-file-contract"></i>
+            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmissaoGuia.aspx?m=502" class="process-link">
+                <img src="img/guiaiptu.png" alt="Guia IPTU" class="option-icon">
                 <h2>Guia IPTU</h2>
             </a>
         </div>
         
-        <div class="option-card" data-search="impressao impressão cadastral">
-            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmitirBCI.aspx?m=2982" class="process-link" target="_blank">
-                <i class="fas fa-dollar-sign"></i>
+         <div class="option-card verificar-nfse" data-search="impressao impressão cadastral">
+            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmitirBCI.aspx?m=2982" class="process-link">
+                <img src="img/cadastroimobiliario.png" alt="Guia IPTU" class="option-icon">
                 <h2>Boletim de Cadastro Imobiliário</h2>
             </a>
         </div>
         
         <div class="option-card" data-search="certidao negativa certidão">
-            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" class="process-link" target="_blank">
-                <i class="fas fa-building"></i>
+            <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/ListaContribuinteAlvara.aspx?tipo=certidao&m=2975" class="process-link">
+                <img src="img/certidaodedebitos.png" alt="Guia IPTU" class="option-icon">
                 <h2>Certidão de Débitos</h2>
             </a>
         </div>
         
 
         <div class="option-card" data-search="leis legislacao">
-            <a href="sitelegislacao.html" class="process-link" target="_blank">
-                <i class="fas fa-hammer"></i>
+            <a href="sitelegislacao.html" class="process-link">
+                <img src="img/legislacao.png" alt="Legislação" class="option-icon">
                 <h2>Legislação</h2>
             </a>
         </div>
         <div class="option-card" data-search="legislacao leis">
-            <a href="https://1drv.ms/f/s!Anwatyi83Jk34VQJZ3SycVtGvVH9?e=fTERjF" class="process-link" target="_blank">
-                <i class="fas fa-paperclip"></i>
+            <a href="siteformularios.html" class="process-link">
+                <img src="img/legislacao.png" alt="Legislação" class="option-icon">
                 <h2>Formulários</h2>
             </a>
         </div>
@@ -142,19 +154,32 @@
     <hr class="section-divider">
 
     <div class="text-content-after-cards">
-  <p>O Imposto sobre a Propriedade Predial e Territorial Urbana (IPTU) é devido por quem possui a propriedade, o domínio útil ou a posse de imóvel situado na zona urbana de Duque de Caxias.</p>
+        <h4>O que é IPTU?</h4>
+        <br>
+    <p>O Imposto sobre a Propriedade Predial e Territorial Urbana (IPTU) é devido por quem possui a propriedade, o domínio útil ou a posse de imóvel situado na zona urbana de Duque de Caxias.</p>
   <br>
-  <p>O valor final do tributo dependerá do valor venal do imóvel, da situação legal, bem como da localização, tamanho, topografia e outros fatores.</p>
+    <p>O valor final do tributo dependerá do valor venal do imóvel, da situação legal, bem como da localização, tamanho, topografia e outros fatores.</p>
   <br>
-  <p>A Taxa de Coleta de Lixo (TCL), que é cobrada pela Prefeitura junto com o IPTU, é calculada anualmente com base no Valor de Referência em função da destinação de uso, localização e da área do imóvel beneficiado.</p>
+    <p>A Taxa de Coleta de Lixo (TCL), que é cobrada pela Prefeitura junto com o IPTU, é calculada anualmente com base no Valor de Referência em função da destinação de uso, localização e da área do imóvel beneficiado.</p>
   <br>
-  <h4 style="margin-bottom: 10px;">Parcelamento de dívidas</h4>
-  <p>O parcelamento de dívidas de IPTU segue o disposto na <a href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2022/331/3305/lei-ordinaria-n-3305-2022-dispoe-sobre-o-parcelamento-dos-creditos-tributarios-e-nao-tributarios-do-municipio-de-duque-de-caxias?q=PARCELAMENTO%20d%EDvida" target="_blank">Lei Municipal 3.305/2022 </a></p>
+    <h4 style="margin-bottom: 10px;">Parcelamento de dívidas</h4>
+    <p>O parcelamento de dívidas de IPTU segue o disposto na <a href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2022/331/3305/lei-ordinaria-n-3305-2022-dispoe-sobre-o-parcelamento-dos-creditos-tributarios-e-nao-tributarios-do-municipio-de-duque-de-caxias?q=PARCELAMENTO%20d%EDvida">Lei Municipal 3.305/2022</a>.</p>
   <br>
+
   <h4 style="margin-bottom: 10px;">Não há parcelamento de dívidas online!</h4> 
 
-    O procedimento deverá ser realizado presencialmente na Praça Roberto da Silveira 31, Jardim 25 de Agosto - Duque de Caxias/RJ, térreo. Para créditos em execução judicial, procurar a Procuradoria Municipal no 3º andar do mesmo endereço.</p>
+    <p>O procedimento deverá ser realizado presencialmente na Praça Roberto da Silveira 31, Jardim 25 de Agosto - Duque de Caxias/RJ, térreo. Para créditos em execução judicial, procurar a Procuradoria Municipal no 3º andar do mesmo endereço.</p>
   <br>
+    
+  <h4>Para Emitir uma Taxa de Expediente:</h4>
+        <ul>
+            <li><a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/Home.aspx">Acesse o serviço online;</a></li>
+            <li>Clique em emissão de guia;</li>
+            <li>Selecione o tipo de inscrição (Imobiliária, Econômica ou Cadastro de Taxa);</li>
+            <li>Digite no campo a inscrição, o código, o CPG/CNPJ ou a matrícula;</li>
+            <li>Clique em Gerar Taxa, Taxa de Expediente no rodapé da página.</li>
+        </ul>   
+
   <h4 style="margin-bottom: 10px;">Serviços relacionados ao IPTU</h4>
   <p>Para serviços relacionados ao IPTU, como mudança de titularidade, alterações cadastrais, baixa de inscrição e impugnação, o requerente deverá comparecer presencialmente na Praça Roberto da Silveira 31, Jardim 25 de Agosto - Duque de Caxias/RJ, térreo, e preencher o formulário fazendário disponível no setor de protocolo. 
     </p><h4 style="margin-top: 10px;">Não há procedimento online para esse serviço.</h4>
@@ -165,80 +190,37 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>CONTEÚDOS</h3>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/ata-registro-preco.php">Ata Registro de Preço</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/autarquias.php">Autarquias</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/portal/index.php/transparencia?id=62">Cadastro de Fornecedores</a>
-                <a href="https://saude.duquedecaxias.rj.gov.br/regulacao-saude.php">Central de Regulação Saúde</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php?conteudo=6339">Conselho Municipal de Saúde</a>
-                <a href="https://portaldatransparencia.gov.br/localidades/3301702-duque-de-caxias">Conv. Governo Federal</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/dados_abertos.php">Dados Abertos</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/despesas.php">Despesas</a>
-                <a href="#">Despesas com recursos da CEDAE</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/divida-ativa.php">Dívida Ativa</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/escolas-municipais.php">Escolas Municipais</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/estatisticas-de-acesso.php">Estatísticas de Acesso</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/fundos-municipais.php">Fundos Municipais</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/gastos-diarias.php">Gastos com Diárias</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/normativos.php">Leis de Acesso a Informação</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/lgpd.php">LGPD</a>
-            </div>
-            <div class="footer-section">
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/licitacoes.php">Licitações</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/obras-publicas.php">Obras Públicas</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/orcamento.php">Orçamento</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/ouvidoria.php">Ouvidoria</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/patrimonios.php">Patrimônios</a>
-                <a href="https://drive.google.com/drive/folders/1hCABUqbobnUe7A9bq3EW3NbbeYYi5KiN?usp=sharing">PDDE</a>
-                <a href="https://leismunicipais.com.br/prefeitura/rj/duquedecaxias">Pesquisas de Leis</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/prestacao-de-contas.php">Prestação de Contas</a>
-                <a href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html">Radar da Transparência</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/receitas.php">Receitas</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/recursos-financeiros.php">Recursos Financeiros</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/relatorios-lrf.php">Relatórios-LRF</a>
-                <a href="https://fpg.duquedecaxias.rj.gov.br/fpg5/openform.do?sys=FPG&action=openform&formID=8808">Rem. dos Servidores</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/siafic.php">SIAFIC - DECRETO FEDERAL 10.540/20</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/termos-contratos.php">Termos e Contratos</a>
-                <a href="https://transparencia.duquedecaxias.rj.gov.br/unidades-saude.php">Unidades de Saúde</a>
-            </div>
-            <div class="footer-section">
                 <h3>OUTROS PORTAIS</h3>
                 <a href="https://duquedecaxias.rj.gov.br/">Prefeitura Municipal de Duque de Caxias</a>
-                <a href="http://www.portaltransparencia.gov.br/">Governo Federal</a>
-                <a href="http://www.senado.gov.br/transparencia/">Senado</a>
-                <a href="http://www2.camara.leg.br/transparencia/a-transparencia-na-camara">Câmara Federal</a>
-                <a href="http://www.rj.gov.br/web/informacaopublica/">Governo Estadual</a>
+                <a href="http://www.gov.br/pt-br">Governo Federal</a>
+                <a href="https://www12.senado.leg.br/hpsenado">Senado Federal</a>
+                <a href="https://www.camara.leg.br/">Câmara dos Deputados</a>
+                <a href="https://www.rj.gov.br/">Governo Estadual</a>
                 <a href="http://www.cmdc.rj.gov.br/?page_id=7592">Leis Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/">Portal Transparência</a>
             </div>
             <div class="footer-section">
                 <h3>FALE CONOSCO</h3>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>plantaofiscal.sefazplan@duquedecaxias.rj.gov.br</p>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
-
-                        <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                  <p>Segunda - Sexta, 9h - 17h</p>
-                    </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>plantaofiscal.sefazplan@duquedecaxias.rj.gov.br</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
+                    <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Segunda à Sexta, 9h - 17h</p>
                 </div>
             </div>
         </div>
-
         <div class="institutional-footer">
             <p>Sede da Prefeitura Municipal de Duque de Caxias - Alameda Esmeralda 206, JD. Primavera, Duque de Caxias / RJ</p>
             <p>CEP: 25215-260 - TEL: (21) 2773-6200 CNPJ: 29.138.328/0001-50</p>
         </div>
-
         <div class="development-credits">
-            <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia. </p>
+            <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia.</p>
         </div>
     </footer>
 
