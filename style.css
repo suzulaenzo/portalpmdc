@@ -119,25 +119,6 @@
             font-weight: normal;
         }
 
-@media (max-width: 768px) {
-  .option-card h2 {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .option-card i {
-  font-size: 30px;         /* Define o tamanho visual da fonte */
-  width: 30px;             /* Garante largura fixa */
-  height: 30px;            /* Garante altura fixa */
-  line-height: 30px;       /* Centraliza verticalmente se necessário */
-  display: flex;           /* Torna o ícone um box flexível */
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px !important;
-  color: white;
-}
-
-}
-
         .option-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -536,11 +517,24 @@
             /* Ajusta o tamanho dos ícones e texto para o layout mobile */
             .option-card i {
                 font-size: 30px !important;
+                margin-bottom: 10px !important;
+                width: auto !important; 
+                height: auto !important;
+                line-height: normal !important;
+                display: block !important;
             }
 
             .option-card h2 {
-                font-size: 16px !important;
+                font-size: 14px !important; /* Diminui a fonte para mobile */
                 margin-top: 10px !important;
+                white-space: normal !important;
+                padding: 0 2px !important; /* Ajusta o padding para dar mais espaço */
+            }
+
+            .option-card .option-icon {
+                max-width: 40px !important;
+                max-height: 40px !important;
+                margin-bottom: 10px !important;
             }
         }
 
