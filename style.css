@@ -947,6 +947,118 @@ ul li {
     filter: brightness(0) invert(1);
 }
 
+/* Pop-up Overlay */
+#popup-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fixo na tela */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que o pop-up esteja acima de outros elementos */
+}
+
+/* Pop-up Container */
+#popup-container {
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    max-width: 90vw; /* Usar viewport width para maior flexibilidade */
+    max-height: 90vh; /* Usar viewport height para maior flexibilidade */
+    width: auto; /* Ajusta a largura ao conteúdo */
+    height: auto; /* Ajusta a altura ao conteúdo */
+    display: flex; /* Adiciona flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza itens horizontalmente */
+    overflow: hidden; /* Corta o conteúdo que exceder as dimensões */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+}
+
+/* Close Button */
+#popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001; /* Garante que o botão esteja acima do overlay */
+}
+
+/* Carousel Wrapper */
+#carousel-wrapper {
+    position: relative;
+    width: 100%; /* Ocupa a largura total do container pai */
+    /* height: 100%; */ /* Removendo para permitir que a altura seja determinada pela imagem */
+    margin: auto;
+    overflow: hidden; /* Esconde partes das imagens que excedem */
+    /* display: flex; */ /* Removendo flexbox para este elemento */
+    /* justify-content: center; */ /* Removendo flexbox para este elemento */
+    /* align-items: center; */ /* Removendo flexbox para este elemento */
+}
+
+/* Carousel Items (Images) */
+.carousel-item {
+    display: none; /* Escondido por padrão */
+    width: 100%;
+    /* height: 100%; */ /* Removendo para permitir que a altura seja determinada pela imagem */
+}
+.carousel-item.active {
+    display: block; /* Mostra o item ativo */
+}
+
+.carousel-item img {
+    width: 100%; /* Ajuste para preencher a largura do carousel-item */
+    height: auto; /* Ajuste para não forçar a altura e manter a proporção */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura do contêiner */
+    display: block; /* Remove espaço extra abaixo da imagem */
+    object-fit: contain; /* Redimensiona a imagem para caber no contêiner, mantendo a proporção */
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.8); /* Fundo semi-transparente para as setas */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: #00AFEF;
+}
+
+/* Media Queries para responsividade do pop-up */
+@media screen and (max-width: 768px) {
+    #popup-container {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
 
 
 
