@@ -915,36 +915,45 @@ ul li {
 
 
 #anistia2025 .document-description {
-    font-size: 20px; /* aumenta a fonte */
+    font-size: 16px; /* aumenta a fonte */
     margin-bottom: 1.25rem; /* aumenta o espaçamento */
 }
 
-#anistia2025 h4 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0.65rem auto 1.25rem;   /* margem inferior para espaçamento */
-  width: 75%;            /* mesma largura do accordion */
-  text-align: left;      /* alinha o texto à esquerda */
+#anistia2025 .document-entry a {
+    font-weight: 500;
+    color: #2980b9;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-#anistia2025 h4.h4-leve {
-    font-weight: 400; /* normal */
-    color: rgba(56, 55, 55, 0.941);
-    margin-bottom: 1.25rem;
-    width: 75%;
-}
 
 #anistia2025 .fake-link {
-    font-size: 20px; /* aumenta a fonte */
+    font-size: 16px; /* aumenta a fonte */
     margin-bottom: 1.25rem; /* aumenta o espaçamento */
 }
+#anistia2025 .accordion {
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #fdfdfd;
+    max-width: 861px;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
+}
 
-/* Estilo para imagens dentro dos cards de opção */
 .option-card .option-icon {
-    width: 64px; /* Largura da imagem */
-    height: 64px; /* Altura da imagem */
-    margin-bottom: 15px; /* Margem inferior, igual ao ícone */
+    width: 64px;  /* largura do container */
+    height: 64px; /* altura do container */
+    margin-bottom: 15px;
     filter: brightness(0) invert(1);
+}
+
+.option-card .option-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mantém proporção da imagem */
 }
 
 /* Pop-up Overlay */
@@ -1059,6 +1068,95 @@ ul li {
     }
 }
 
+@media screen and (max-width: 768px) {
+#anistia2025 .accordion-header {
+        text-align: left;
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+#anistia2025 .accordion {
+    padding: 0px 20px 0px 20px;
+        width: 100%;
+    }
+/* Estilo para imagens dentro dos cards de opção */
+.option-card .option-icon {
+    width: 64px; /* Largura da imagem */
+    height: 64px; /* Altura da imagem */
+    margin-bottom: 15px; /* Margem inferior, igual ao ícone */
+    filter: brightness(0) invert(1);
+}
+}
 
+/* BARRA DE PESQUISA DROP DOWN /*
 
+/* Container da pesquisa */
+.search-container {
+    position: relative;
+}
 
+#searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 390px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 9999;
+    display: none;
+    padding: 5px 0; /* espaço interno do container */
+}
+
+#searchResults .result-item {
+    padding: 10px 10px;  /* mantém padding interno */
+    margin: 10px 0;      /* margem top e bottom de 10px */
+    font-size: 24px;     /* aumenta a fonte */
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center; /* alinha imagem e texto verticalmente */
+}
+
+#searchResults .result-item img {
+    margin-right: 5px;       /* espaçamento entre imagem e texto */
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(0);
+}
+
+#searchResults .result-item:hover {
+    background: #f0f0f0;
+}
+
+#searchResults .no-results {
+    padding: 10px;
+    color: #888;
+    font-size: 16px;   /* mesmo tamanho de fonte que os itens */
+}
+
+/* Esconde o fake-link apenas em telas pequenas (mobile) */
+@media (max-width: 768px) {
+    #searchResults .result-item span.fake-link {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #searchResults .result-item .fake-link,
+    #searchResults .result-item .no-img {
+        display: none !important; /* força esconder */
+    }
+}
+
+@media (max-width: 768px) {
+    #searchResults .result-item {
+        font-size: 14px;
+    }
+    #searchResults .result-item strong {
+    margin-right: 10px;
+    }   
+}

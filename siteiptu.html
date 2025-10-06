@@ -8,6 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PMDC - IPTU</title>
         
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+
           <!-- Open Graph (Facebook, LinkedIn etc) -->
         <meta property="og:title" content="PMDC - Portal do Contribuinte" />
         <meta property="og:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
@@ -95,7 +104,6 @@
             <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
             <a href="siteformularios.html">Formulários</a> 
-            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -106,11 +114,12 @@
 
     <div class="search-container">
         <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
+            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>
             </button>
         </form>
+        <div id="searchResults"></div>
     </div>
     
     <div class="grid-container" id="optionsGrid">
@@ -224,21 +233,7 @@
         </div>
     </footer>
 
-    <script>
-        function filterOptions() {
-            const searchInput = document.getElementById('searchInput');
-            const searchTerm = searchInput.value.toLowerCase();
-            const cards = document.querySelectorAll('.option-card');
-
-            cards.forEach(card => {
-                const searchData = card.getAttribute('data-search').toLowerCase();
-                if (searchData.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="script/pesquisa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 </body>
 </html>

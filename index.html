@@ -43,6 +43,7 @@
     </head>
 <body>
 
+
     <nav class="main-menu">
         <img src="img/logonova.png" alt="Logo Duque de Caxias" class="logo">
         <div class="menu-links">
@@ -50,7 +51,6 @@
             <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
             <a href="siteformularios.html">Formulários</a> 
-            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -60,13 +60,18 @@
     </div>
 
     <div class="search-container">
-        <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
-            <button type="submit" class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </div>
+    <form class="search-form" onsubmit="return false;">
+        <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
+        <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+    <!-- Lista de resultados -->
+    <div id="searchResults"></div>
+</div>
+
+
 
 <!-- Grid de cards -->
 <div class="grid-container" id="optionsGrid">
@@ -98,7 +103,7 @@
 
     <!-- Segunda linha -->
     <a href="sitealvara.html" class="option-card" data-search="alvara alvará">
-        <img src="img/alvara.png" alt="Alvará" class="option-icon">
+        <img src="img/ALVARA.png" alt="Alvará" class="option-icon">
         <h2>Alvará</h2>
     </a>
 
@@ -194,9 +199,10 @@
     <script>
         new window.VLibras.Widget();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 
-    <!-- Pop-up Overlay -->
-    <div id="popup-overlay">
+     <!-- Pop-up Overlay -->
+     <div id="popup-overlay">
         <!-- Pop-up Container -->
         <div id="popup-container">
             <!-- Close Button -->
@@ -221,6 +227,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 

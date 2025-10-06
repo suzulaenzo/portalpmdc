@@ -7,6 +7,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+<!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+
         <title>PMDC - Alvará</title>
         
         <style>
@@ -118,7 +127,6 @@
             <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
             <a href="siteformularios.html">Formulários</a> 
-            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -129,13 +137,16 @@
     </div>
 
     <div class="search-container">
-        <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
-            <button type="submit" class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-    </div>
+    <form class="search-form" onsubmit="return false;">
+        <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
+        <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+    <!-- Lista de resultados -->
+    <div id="searchResults"></div>
+</div>
     
     <div class="grid-container" id="optionsGrid">
         <a href="alvaraprocedimento.html" class="option-card" data-search="procedimento manual passo a passo como solicitar alvara">
@@ -308,21 +319,7 @@
         </div>
     </footer>
 
-    <script>
-        function filterOptions() {
-            const searchInput = document.getElementById('searchInput');
-            const searchTerm = searchInput.value.toLowerCase();
-            const cards = document.querySelectorAll('.option-card');
-
-            cards.forEach(card => {
-                const searchData = card.getAttribute('data-search').toLowerCase();
-                if (searchData.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="script/pesquisa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 </body>
 </html>

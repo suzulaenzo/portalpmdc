@@ -8,6 +8,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PMDC - Anistia 2025</title>
 
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+        
+
           <!-- Open Graph (Facebook, LinkedIn etc) -->
         <meta property="og:title" content="PMDC - Portal do Contribuinte" />
         <meta property="og:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
@@ -39,8 +49,7 @@
           <a href="anistia2025.html">Anistia 2025</a>
             <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
-            <a href="siteformularios.html">Formulários</a> 
-            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
+            <a href="siteformularios.html">Formulários</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -51,11 +60,12 @@
 
     <div class="search-container">
         <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
+            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>
             </button>
         </form>
+        <div id="searchResults"></div>
     </div>
 
     <style>
@@ -214,130 +224,54 @@
       </style>
     </head>
     <body id="anistia2025">
-    <h4>O que poderá ser negociado?</h4>
-    <h4 class="h4-leve">A Anistia2025 permite a negociação de débitos, oferecendo a possibilidade de descontos nas multas e juros para quem optar pelo pagamento à vista ou parcelar conforme as condições do programa.</h4>
-              <div class="accordion">
-            <div class="accordion-header" onclick="toggleAccordion(this)"><i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Veja os débitos que pode ser negociados</div>
-            <div class="accordion-content">
-              <div class="document-entry">
-                <div class="document-description">Imposto Sobre Serviços de Qualquer Natureza (ISSQN)</div>
-              </div>
+      <div class="iss-text-container" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+    <h4 style="margin-bottom: 15px;">Atenção Duque de Caxias! Chegou a hora de se regularizar!</h4>
 
-              <div class="document-entry">
-                <div class="document-description">Imposto sobre a Propriedade Predial e Territorial Urbana (IPTU)</div>
-            </div>
+    <p style="margin-bottom: 10px;">A Anistia fiscal de 2025 já está valendo. O programa concede descontos de até 100% em juros e multas para dívidas anteriores a 31 de dezembro de 2024 de acordo com a Lei 3.522/2025.</p>
+    <p style="margin-bottom: 10px;">É bom pra você, é bom pra Duque de Caxias.</p>
 
-              <div class="document-entry">
-              <div class="document-description">Imposto sobre a Transmissão “inter-vivos” de Bens Imóveis e de direitos reais a eles relativos (ITBI)</div>
-          </div>
+    <h4 style="margin-bottom: 10px;">O que poderá ser negociado?</h4>
+    <p style="margin-bottom: 10px;">
+        A Anistia2025 permite a negociação de dívidas de IPTU, ISS e Taxas. A adesão permite a regularização de débitos anteriores a 31 de dezembro de 2024, desde que os tributos referentes ao exercício de 2025 estejam em dia.
+    </p>
+    <p style="margin-bottom: 10px;">
+        Contribuintes que participaram de anistias anteriores, mas não conseguiram concluir o pagamento, também poderão renegociar seus débitos. O valor mínimo das parcelas é de R$ 99,00, tanto para pessoas físicas quanto para jurídicas. O parcelamento abrange ainda autos de infração, multas e taxas de alvará. Já as dívidas referentes ao Imposto de Transmissão de Bens Imóveis (ITBI) não são contempladas pela nova lei.
+    </p>
 
-             <div class="document-entry">
-               <div class="document-description">Taxa de Coleta de Lixo (TCL)</div>
-          </div>
-
-            <div class="document-entry">
-             <div class="document-description">Taxa de Fiscalização de Localização e Funcionamento (TFLF)</div>
-          </div>
-
-           <div class="document-entry">
-            <div class="document-description">Imposto sobre Vendas a Varejo de combustíveis líquidos e gasosos (IVV), exceto óleo diesel</div>
-         </div>
-
-    <div class="document-entry">
-      <div class="document-description">Créditos de natureza não tributária inscritos em Dívida Ativa.</div>
-  </div>
-
-            </div>
-            
-          </div>
-          
-          
-
-
-          <h4>Como Aderir?</h4>
-    <h4 class="h4-leve">O contribuinte deve comparecer pessoalmente à Prefeitura Municipal de Duque de Caxias,<br> sendo permitida a inclusão apenas dos débitos vencidos até 31 de dezembro de 2024.
-    <h4 class="h4-leve">Endereço: Praça Roberto da Silveira, nº 31 –, Jardim 25 de Agosto, Duque de Caxias/RJ.</h4>
-  <h4 class="h4-leve"><strong>Diretoría de Dívida Atíva:</strong>
-<h4 class="h4-leve"><strong>WhatsApp: 2672-8856</strong></h4>
-<h4 class="h4-leve"><strong>E-mail: dividaativa.sefaz@duquedecaxias.rj.gov.br.</strong> </h4>
-              <div class="accordion">
-            <div class="accordion-header" onclick="toggleAccordion(this)"><i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Veja aqui a Legislação correspondente</div>
-            <div class="accordion-content">
-              <div class="document-entry">
-                <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2025/353/3522/lei-ordinaria-n-3522-2025-concede-anistia-e-remissao-de-juros-e-multas-incidentes-sobre-os-tipos-de-creditos-que-menciona" rel="noopener"> LEI ORDINÁRIA 3522 2025, Lei que rege o Programa de Anistia Fiscal.</a>
-
-                <div class="document-description">
+    <h4 style="margin-bottom: 10px;">Como Aderir?</h4>
+    <p style="margin-bottom: 10px;">
+        Para aderir ao Programa de Anistia Fiscal 2025, os interessados devem comparecer à Secretaria Municipal de Fazenda, localizada na Praça Roberto Silveira, nº 31 – Centro, Duque de Caxias, de segunda a sexta-feira, das 8h às 17h, ou entrar em contato pelo telefone (21) 2672-8856 para obter maiores informações.
+    </p>
 </div>
-</div>
-</div>
-</div>
-            
-          </div>
+
 
 <div class="accordion">
-            <div class="accordion-header" onclick="toggleAccordion(this)"><i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Reduções e Descontos</div>
-            <div class="accordion-content">
-              <div class="document-entry">
-                <div class="document-description">Os contribuintes que aderirem ao programa terão reduções de até 90% nas multas de mora, multas por infração e juros de mora, conforme a forma de pagamento e o número de parcelas. A adesão pode ser feita entre 1º de setembro e 31 de outubro de 2025.</div>
-            </div>
-
-              <div class="document-entry">
-                <div class="document-description">à vista, com desconto de 100% de juros e multa;</div>
-            </div>
-
-            <div class="document-entry">
-                <div class="document-description">em até 12 (doze) parcelas, com desconto de 90% em juros e multa;</div>
-            </div>
-
-            <div class="document-entry">
-                <div class="document-description">em até 24 (vinte e quatro) parcelas, com desconto de 80% em juros e multa;</div>
-            </div>
-
-
-              <div class="document-entry">
-                <div class="document-description">em até 36 (trinta e seis) parcelas, com desconto de 70% em juros e multa; ou</div>
-            </div>
-
-            <div class="document-entry">
-                <div class="document-description">em até 180 (cento e oitenta) parcelas, com desconto de 70% (setenta por cento) de juros e multa, para dívidas superiores a R$ 100.000,00 (cem mil reais).</div>
-            </div>
-
-            </div>
-          </div>
-
-          <div class="accordion">
-  <div class="accordion-header" onclick="toggleAccordion(this)">
-    <i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Quando preciso pagar a primeira parcela após a adesão?
-  </div>
-  <div class="accordion-content">
-    <div class="document-entry">
-      <div class="document-description">
-        A primeira parcela vence em até 5 dias a partir da data de adesão, conforme previsto na Lei de Anistia de Duque de Caxias.
-      </div>
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+        <i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Documentação obrigatória
     </div>
-  </div>
+    <div class="accordion-content">
+        <div class="document-entry">
+            <div class="document-description"><strong>Pessoa física:</strong> cópia do CPF e identidade oficial com foto e comprovante de residência recente (com o máximo de 6 meses) com CEP válido, e-mail e telefone celular.</div>
+        </div>
+        <div class="document-entry">
+            <div class="document-description"><strong>Pessoa jurídica:</strong> cópia do CNPJ, Contrato Social ou última alteração contratual que contenha cláusula de gerência ou Estatuto Social e Ata de eleição da atual Diretoria, Documento de identidade dos signatários e comprovante de residência recente (com o máximo de 6 meses) com CEP válido, e-mail e telefone celular.</div>
+        </div>
+        <div class="document-entry">
+            <div class="document-description"><strong>Anistia solicitada pelo procurador:</strong> Procuração autenticada em cartório e identidade oficial com foto do seu representante legal. O reconhecimento de firma será dispensado quando forem apresentados os documentos de identidade dos envolvidos, originais, ou cópias autenticadas, que permitam ao servidor municipal fazer a comparação das assinaturas e verificação de sua autenticidade.</div>
+        </div>
+    </div>
 </div>
-
-<h4>Esqueci de pagar a primeira parcela, e agora?</h4>
-
-<h4 class="h4-leve">O não pagamento da primeira parcela acarreta o indeferimento da adesão e perda de todos os benefícios concedidos, além de encaminhamento da dívida para protesto e cobrança judicial.</strong></h4>
 
 <div class="accordion">
-  <div class="accordion-header" onclick="toggleAccordion(this)">
-    <i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Posso aderir ao programa se tiver discussões administrativas ou judiciais abertas?
-  </div>
-  <div class="accordion-content">
-    <div class="document-entry">
-      <div class="document-description">
-        Sim. É possível aderir, mas débitos em execução judicial devem ser requeridos junto à Procuradoria-Geral do Município (PGM). As despesas processuais devem ser quitadas junto com a parcela inicial ou nas três primeiras parcelas, conforme previsto na lei.
-      </div>
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+        <i class="fas fa-chevron-down" style="margin-right: 8px;"></i>Legislação
     </div>
-  </div>
+    <div class="accordion-content">
+        <div class="document-entry">
+            <a class="fake-link" href="https://leismunicipais.com.br/a/rj/d/duque-de-caxias/lei-ordinaria/2025/353/3522/lei-ordinaria-n-3522-2025-concede-anistia-e-remissao-de-juros-e-multas-incidentes-sobre-os-tipos-de-creditos-que-menciona" rel="noopener"> LEI ORDINÁRIA 3522/2025</a>
+        </div>
+    </div>
 </div>
-
-          <h4>Regularização e Benefícios</h4>
-<h4 class="h4-leve">Facilidade para regularizar débitos antigos, inclusive os que já estavam parcelados ou em execução judicial, com possibilidade de adesão sem exigência de garantia.</h4>
-
 
 <hr class="section-divider">
 
@@ -464,6 +398,7 @@
     <script>
         new window.VLibras.Widget();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 </body>
 </html>
 

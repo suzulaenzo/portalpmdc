@@ -21,7 +21,15 @@
         <meta name="twitter:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
         <meta name="twitter:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
         
-        
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+
         <style>
             @font-face {
                 font-family: 'AaltoSansEssentialLight';
@@ -107,7 +115,6 @@ ul li {
             <a href="index.html">Página Inicial</a>
             <a href="sitelegislacao.html">Legislação</a>
             <a href="siteformularios.html">Formulários</a> 
-            <a href="siteplantaofiscal.html">Perguntas Frequentes</a>
             <a href="siteplantaofiscal.html">Fale conosco</a>
         </div>
     </nav>
@@ -118,11 +125,12 @@ ul li {
 
     <div class="search-container">
         <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?" oninput="filterOptions()">
+            <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
             <button type="submit" class="search-button">
                 <i class="fas fa-search"></i>
             </button>
         </form>
+        <div id="searchResults"></div>
     </div>
     
     <div class="grid-container" id="optionsGrid">
@@ -254,5 +262,6 @@ ul li {
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
 </body>
 </html>
