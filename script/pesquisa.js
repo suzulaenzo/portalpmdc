@@ -17,7 +17,6 @@ const files = [
     '/sitetransitorio.html'
 ];
 
-
 // Mapa de imagens do index.html
 let pageImagesMap = {};
 let allEntries = []; // índice geral para busca
@@ -86,43 +85,35 @@ async function buildIndex() {
                 });
             });
 
-            // Extra entries para sitelegislacao.html e siteformularios.html
-            if (file === 'sitelegislacao.html' || file === 'siteformularios.html') {
-                const documentEntries = tempDiv.querySelectorAll('.document-entry');
-                documentEntries.forEach((entry, index) => {
+            // Indexa cada document-entry separadamente (fake-link + document-description)
+            const accordions = tempDiv.querySelectorAll('.accordion-content');
+            accordions.forEach((accordion, accIndex) => {
+                const accordionId = accordion.id || `accordion-${file}-${accIndex}`;
+                if (!accordion.id) accordion.id = accordionId;
+
+                const entries = accordion.querySelectorAll('.document-entry');
+                entries.forEach((entry, entryIndex) => {
                     const fakeLinkEl = entry.querySelector('a.fake-link');
                     const docDescEl = entry.querySelector('.document-description');
-                    const fakeLinkText = fakeLinkEl ? fakeLinkEl.textContent.trim() : '';
-                    const docDescText = docDescEl ? docDescEl.textContent.trim() : '';
-                    if (fakeLinkText || docDescText) {
-                        // Cria ID único para o Accordion
-                        const accordionContent = entry.closest('.accordion-content');
-                        if (!accordionContent.id) {
-                            accordionContent.id = `accordion-${file}-${index}`;
-                        }
-                        const accordionId = accordionContent.id;
 
-                        // Força o uso da imagem do card principal do index.html
-                        let cardImageForExtra = '';
-                        if (file === 'siteformularios.html') cardImageForExtra = pageImagesMap['Formulários'] || '';
-                        if (file === 'sitelegislacao.html') cardImageForExtra = pageImagesMap['Legislação'] || '';
-
+                    if (fakeLinkEl || docDescEl) {
                         allEntries.push({
                             page: file,
                             title: pageTitle,
-                            text: fakeLinkText + ' ' + docDescText,
-                            pageImg: cardImageForExtra,
+                            fakeLinkText: fakeLinkEl ? fakeLinkEl.textContent.trim() : '',
+                            docDescText: docDescEl ? docDescEl.textContent.trim() : '',
+                            pageImg: pageImagesMap[pageTitle] || '',
                             cardImg: '',
                             accordionId: accordionId
                         });
                     }
                 });
-            }
+            });
 
             // Remove scripts e styles
             tempDiv.querySelectorAll('script, style, noscript').forEach(el => el.remove());
 
-            // Indexa apenas o texto das divs relevantes
+            // Indexa o texto das divs principais
             let pageText = '';
             selectors.forEach(sel => {
                 tempDiv.querySelectorAll(sel).forEach(el => {
@@ -150,8 +141,8 @@ async function buildIndex() {
     allEntries.push({
         page: 'siteplantaofiscal.html',
         title: 'PMDC - Plantão Fiscal',
-        text: '',  // mantém vazio para não exibir palavras-chave no texto
-        keywords: ['telefone', 'contato', 'fale conosco', 'número', 'numero'], // dispara a busca
+        text: '',
+        keywords: ['telefone', 'contato', 'fale conosco', 'número', 'numero'],
         pageImg: pageImagesMap['Plantão Fiscal'] || '',
         cardImg: ''
     });
@@ -166,12 +157,13 @@ async function searchInHTMLs(filter) {
         return;
     }
 
-    // Configura Fuse.js
     const fuse = new Fuse(allEntries, {
         keys: [
             { name: 'title', weight: 0.7 },
             { name: 'text', weight: 0.3 },
-            { name: 'keywords', weight: 0.9 } // Fuse busca também nas keywords
+            { name: 'fakeLinkText', weight: 0.6 },
+            { name: 'docDescText', weight: 0.6 },
+            { name: 'keywords', weight: 0.8 }
         ],
         threshold: 0.2,
         includeScore: true
@@ -190,14 +182,18 @@ async function searchInHTMLs(filter) {
             const div = document.createElement('div');
             div.classList.add('result-item');
 
+            let displayText = '';
+            if (item.text) displayText += item.text.substring(0, 200) + '... ';
+            if (item.fakeLinkText) displayText += `${item.fakeLinkText}. `;
+            if (item.docDescText) displayText += ` ${item.docDescText}. `;
+
             div.innerHTML = `
                 ${item.pageImg ? `<img src="${item.pageImg}" style="margin-right:10px; filter: brightness(0) invert(0);">` : ''}
                 <strong style="margin-right:10px;">${item.title}</strong>
                 ${item.cardImg ? `<img src="${item.cardImg}" style="margin-left:10px; margin-right:20px; filter: brightness(0) invert(0);">` : ''}
-                ${item.text.substring(0, 200)}...
+                <div>${displayText}</div>
             `;
 
-            // Redireciona e abre accordion se houver
             div.addEventListener('click', () => {
                 if (item.accordionId) {
                     window.location.href = item.page + '#' + item.accordionId;
@@ -225,6 +221,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 });
+
 
 // Lógica do Pop-up e Carrossel
 document.addEventListener('DOMContentLoaded', function() {
