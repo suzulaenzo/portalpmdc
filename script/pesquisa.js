@@ -63,7 +63,7 @@ async function buildIndex() {
             const pageTitleElement = tempDiv.querySelector('title');
             const pageTitle = pageTitleElement ? pageTitleElement.textContent.trim() : file;
 
-            // Procura a imagem que tenha o título mais próximo
+            // Procura imagem mais próxima do título
             let pageImgSrc = '';
             for (const key in pageImagesMap) {
                 if (pageTitle.includes(key)) {
@@ -85,7 +85,7 @@ async function buildIndex() {
                 });
             });
 
-            // Indexa cada document-entry separadamente (fake-link + document-description)
+            // Indexa cada document-entry (fake-link + descrição)
             const accordions = tempDiv.querySelectorAll('.accordion-content');
             accordions.forEach((accordion, accIndex) => {
                 const accordionId = accordion.id || `accordion-${file}-${accIndex}`;
@@ -113,7 +113,7 @@ async function buildIndex() {
             // Remove scripts e styles
             tempDiv.querySelectorAll('script, style, noscript').forEach(el => el.remove());
 
-            // Indexa o texto das divs principais
+            // Indexa texto das seções principais
             let pageText = '';
             selectors.forEach(sel => {
                 tempDiv.querySelectorAll(sel).forEach(el => {
@@ -137,16 +137,40 @@ async function buildIndex() {
         }
     }
 
-    // Entrada especial para Plantão Fiscal (palavras-chave ocultas)
-    allEntries.push({
-        page: 'siteplantaofiscal.html',
-        title: 'PMDC - Plantão Fiscal',
-        text: '',
-        keywords: ['telefone', 'contato', 'fale conosco', 'número', 'numero'],
-        pageImg: pageImagesMap['Plantão Fiscal'] || '',
-        cardImg: ''
-    });
+    // 🔍 Entrada especial para PLANTÃO FISCAL (indexa cada <h4> das .section-item)
+    try {
+        const response = await fetch('/siteplantaofiscal.html');
+        const text = await response.text();
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = text;
+
+        // Captura todos os h4 dentro das .section-item
+        const sectionItems = tempDiv.querySelectorAll('.section-item h4');
+        sectionItems.forEach((h4, index) => {
+            const sectionTitle = h4.textContent.trim();
+
+            // Pega o texto completo da mesma seção
+            const sectionDiv = h4.closest('.section-item');
+            const sectionText = sectionDiv ? sectionDiv.textContent.trim() : '';
+
+            // Adiciona como uma entrada separada no índice
+            allEntries.push({
+                page: 'siteplantaofiscal.html',
+                title: 'PMDC - Plantão Fiscal',
+                text: ' ' + sectionText,
+                keywords: ['telefone', 'contato', 'fale conosco', 'número', 'numero'],
+                pageImg: pageImagesMap['Plantão Fiscal'] || '',
+                cardImg: '',
+                sectionId: `section-${index}`
+            });
+        });
+
+    } catch (error) {
+        console.error('Erro ao indexar siteplantaofiscal.html', error);
+    }
 }
+
+
 
 async function searchInHTMLs(filter) {
     const resultsContainer = document.getElementById('searchResults');
@@ -165,7 +189,7 @@ async function searchInHTMLs(filter) {
             { name: 'docDescText', weight: 0.6 },
             { name: 'keywords', weight: 0.8 }
         ],
-        threshold: 0.2,
+        threshold: 0.4,
         includeScore: true
     });
 
@@ -221,6 +245,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Lógica do Pop-up e Carrossel
