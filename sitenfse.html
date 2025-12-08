@@ -75,7 +75,7 @@
                 line-height: 1.5;
                 text-align: center;
             }
-
+            
         </style>
         
         <link rel="icon" type="image/png" href="img/favicon.png">
@@ -164,11 +164,191 @@
                 <h2>Formulários</h2>
             </a>
         </div>
+        
+            <a href="sitemanuais.html" class="option-card" data-search="manuais convenios governo federal">
+             <img src="img/Manual.png" alt="Legislação" class="option-icon">
+            <h2>Manuais</h2>
+         </a>
     </div>
+  </div>
   
-    <hr class="section-divider">
+    <hr class="section-divider" style="margin: 30px 0px 0px;">
 
-    <div class="text-content-after-cards">
+
+  <div class="text-content-wide">
+  <section class="nfse-section nfse-caxias">
+    <h2><i class="fas fa-balance-scale"></i> Nova Legislação Nacional</h2>
+      <div class="alt-grid">
+        <div class="alt-card modern-card">
+          <div class="icon-circle bg-caxias-blue"><i class="fas fa-gavel"></i></div>
+          <h3>Nova Lei Complementar</h3>
+          <p>
+          O <b>Art. 62 da LC Nº 214 </b> estabelece o novo padrão nacional de Nota Fiscal de Serviços Eletrônica (NFS-e),
+          com regras unificadas para todos os municípios brasileiros.
+        </p>
+      <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" class="nfse-link blue">📘 Ver Lei Complementar</a>
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-gold"><i class="fas fa-file-invoice"></i></div>
+      <h3>Padrão Nacional de Dados</h3>
+      <p>
+        A emissão seguirá um modelo único, com leiautes XML padronizados e integração direta com o Ambiente 
+        Nacional da NFS-e. O objetivo é simplificar obrigações e aumentar a transparência fiscal.
+      </p>
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-network-wired"></i></div>
+      <h3>Integração entre Municípios</h3>
+      <p>
+        Todos os sistemas municipais passam a se comunicar com a base nacional,
+        permitindo o cruzamento automático de informações e a redução de inconsistências.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: Como vai funcionar em Duque de Caxias -->
+<section class="nfse-section nfse-caxias">
+  <h2><i class="fas fa-city"></i> Como Vai Funcionar em Duque de Caxias</h2>
+  <img src="img/nfseflow.jpeg" alt="Fluxo NFSe" class="nfse-flow-img">
+  
+  <div class="alt-grid">
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-gold"><i class="fas fa-users-cog"></i></div>
+      <h3>Adaptação Local</h3>
+      <p>
+        A Prefeitura de Duque de Caxias recepcionará as declarações através de seu Web Service e 
+        transmitirá ao Ambiente Nacional da NFS-e a partir de 1º de janeiro de 2026.
+      </p>
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-industry"></i></div>
+      <h3>Web Service</h3>
+      <p>
+        A integração via Web Service continuará nos moldes vigentes. Os manuais serão atualizados e 
+        disponibilizados sempre que houver alterações legislativas.
+      </p>
+      <a href="pdfs/Manual_integracao_v101.pdf" class="nfse-link green">📄 Acessar Documentação</a>
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-gold"><i class="fas fa-handshake"></i></div>
+      <h3>Atendimento ao Contribuinte</h3>
+      <p>
+        A Secretaria de Fazenda disponibilizará canais diretos de atendimento para orientar contribuintes e desenvolvedores
+        sobre as novas exigências fiscais.
+      </p>
+      <a href="https://chat.issnetonline.com.br/livechat?mode=popout" class="nfse-link green">💬 Acessar suporte</a>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: Providências Necessárias -->
+<section class="nfse-section nfse-caxias">
+  <h2><i class="fas fa-file-contract" style="font-size: 33px;"></i> Providências Necessárias</h2>
+  <div class="alt-grid">
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-code"></i></div>
+      <h3>Prepare seu software</h3>
+      <p>
+        Converse com seu fornecedor de sistema o quanto antes para garantir a integração via APIs.
+        Já estão disponíveis materiais técnicos, layouts e especificações para as equipes de TI.
+      </p>
+      <a href="pdfs/Manual_integracao_v101.pdf" class="nfse-link green">🖥️ Documentação da API</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-gold"><i class="fas fa-calendar-check"></i></div>
+      <h3>Prazo Inicial: 1º de janeiro de 2026</h3>
+      <p>
+        Fique atento aos códigos de tributação nacional e às normas de incidência do ISSQN conforme o tipo de serviço.
+        Entender essas regras evita erros no momento da emissão da nota.
+      </p>
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-id-card"></i></div>
+      <h3>Atualize seu cadastro</h3>
+      <p>
+        Os dados do seu cadastro municipal são usados para validar suas notas fiscais.
+        Verifique se as informações estão corretas e mantenha tudo atualizado para não ter problemas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO: Cronograma de Implementação -->
+<section class="nfse-section nfse-timeline">
+  <h2 class="titulo-implantacao-caxias">
+    <i class="fas fa-calendar-alt"></i> Cronograma de Implementação
+  </h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-icon bg-caxias-blue"><i class="fas fa-cogs"></i></div>
+      <div class="timeline-content">
+        <h3>Fase 1 – Atual</h3>
+        <p>
+          Adequação dos sistemas municipais e integração com o Ambiente Nacional.
+          Manutenção do Emissor Próprio durante a transição.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon bg-caxias-gold"><i class="fas fa-hourglass-half"></i></div>
+      <div class="timeline-content">
+        <h3>Fase 2 – 2025</h3>
+        <p>
+          Prazo final para adequação de todos os sistemas (30 de novembro de 2025).
+          Testes e validações finais.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon bg-caxias-blue"><i class="fas fa-chart-line"></i></div>
+      <div class="timeline-content">
+        <h3>Fase 3 – 2026</h3>
+        <p>
+          Avaliação do período de transição e preparação para adequação aos novos impostos IBS e CBS.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon bg-caxias-gold"><i class="fas fa-flag-checkered"></i></div>
+      <div class="timeline-content">
+        <h3>Fase 4 – Futuro</h3>
+        <p>
+          Implementação completa do sistema nacional e adequação total à Reforma Tributária.
+        </p>
+      </div>
+    </div>
+
+      <section class="nfse-section nfse-caxias">
+    <h2><i class="fas fa-info-circle" style="font-size: 33px;"></i> O que é a nova NFS-e Nacional?  </h2>
+    <div class="alt-grid">
+      </div>
+
+      <!-- SEÇÃO: Sobre o Projeto NFS-e Nacional -->
+<section class="nfse-section nfse-projeto">
+  <div class="text-content-wide">
+    <p>
+      O <b>Projeto Nota Fiscal de Serviços Eletrônica (NFS-e Nacional)</b> foi concebido no âmbito do
+      <b>Grupo de Trabalho 01 (GT 01)</b> da Câmara Técnica Permanente da Associação Brasileira das Secretarias de Finanças das Capitais <b>(ABRASF)</b>.
+      Esse grupo é composto por representantes dos municípios participantes e tem como principal finalidade o desenvolvimento
+      de um modelo de processo que contemple as necessidades específicas e as legislações vigentes de cada ente municipal.
+    </p>
+  </div>
+</section>
+
+  <hr class="section-divider" style="margin: 30px 0px 0px;">
+
+ <div class="text-content-after-cards">
             <br>
     <h4>O que é NFS-e?</h4>
     <p>
@@ -232,7 +412,12 @@
 
         </div>
 
-        <style>
+
+  </div>
+</section>
+  </div>
+
+      <style>
         h4 {
             margin-bottom: 10px;
         }
@@ -265,6 +450,7 @@
             }
         }
     </style>
+    
     <!-- Rodapé -->
    <footer>
         <div class="footer-content">

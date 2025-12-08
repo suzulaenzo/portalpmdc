@@ -5,15 +5,53 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Menu principal */
         .main-menu {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            background-color: #0072bc;
-            padding: 15px 20px;
-        }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #0072bc;
+  padding: 15px 20px;
+  gap: 0px; /* espaçamento entre os links */
+}
+
+/* Links do menu */
+.main-menu a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Linha animada (inicialmente invisível) */
+.main-menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%; /* começa centralizada */
+  bottom: -4px;
+  width: 0; /* começa invisível */
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%); /* mantém o centro alinhado */
+}
+
+/* Ao passar o mouse */
+.main-menu a:hover::after {
+  width: 50%; /* define o tamanho da linha (ex: metade do texto) */
+}
+
+/* Efeito hover */
+.main-menu a:hover::after {
+  width: 80%;
+}
+
+/* Efeito extra (opcional): mudar cor do texto no hover */
+.main-menu a:hover {
+  color: #dceeff;
+}
 
         .menu-container {
             display: flex;
@@ -26,8 +64,8 @@
         }
 
         .logo {
-            height: 50px;
-            width: 147px;
+            height: 60px;
+            width: 155px;
             margin-right: 10px;
         }
 
@@ -363,7 +401,7 @@
             }
 
             .logo {
-                margin-bottom: 15px;
+                margin-bottom: 0px;
             }
         }
 
@@ -471,6 +509,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+        
+        .anistia-card {
+    background-color: #00b800 !important; 
+        }
+
+        .anistia-card:before {
+            background-color: #00D700 !important;
         }
 
         .option-card i {
@@ -705,15 +751,17 @@
 
     /* Centralização da logo com links */
     .main-menu {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        display: flex;
     }
 
     .logo {
-        height: 45px;
-        margin-bottom: 15px;
+        display: block;
+        height: 62px;
+        width: 195px;
+        margin-bottom: 0px; 
         margin-right: 0;
     }
 
@@ -1160,3 +1208,355 @@ ul li {
     margin-right: 10px;
     }   
 }
+
+
+
+
+
+/* ====== AJUSTE DE GRID E LAYOUT ====== */
+.nfse-caxias .alt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Cada card ocupa toda a altura da linha */
+.nfse-caxias .alt-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.nfse-caxias .alt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ====== ÍCONES ====== */
+.nfse-caxias .icon-circle {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Azul e dourado (tons da prefeitura) */
+.bg-caxias-blue {
+  background-color: #2a66b0; /* azul institucional */
+}
+
+.bg-caxias-gold {
+  background-color: #2a66b0; /* dourado/laranja suave */
+}
+
+/* ====== TEXTOS ====== */
+.nfse-caxias .alt-card h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.nfse-caxias .alt-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Links mais elegantes */
+.nfse-caxias .nfse-link {
+  margin-top: 15px;
+  align-self: flex-start;
+  color: #2a66b0;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #2a66b0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+}
+
+.nfse-caxias .nfse-link:hover {
+  background-color: #0072bc;
+  color: white;
+}
+
+/* ====== TÍTULOS DAS SEÇÕES ====== */
+.nfse-caxias h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0072bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 4px solid #0072bc;
+  padding-bottom: 30px;
+  margin-bottom: 45px;
+  margin-top: 45px;
+}
+
+/* ====== Ajuste de tamanho dos títulos em telas pequenas ====== */
+@media (max-width: 600px) {
+  .nfse-caxias h2 {
+    font-size: 1.3rem; /* ajuste o valor conforme quiser */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* ====== LAYOUT ESPECÍFICO PARA COMPUTADOR ====== */
+@media (min-width: 1024px) {
+  .nfse-caxias .alt-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards lado a lado */
+    gap: 35px; /* um pouco mais de espaçamento para respirar */
+    max-width: 1200px; /* opcional: centraliza o conteúdo */
+    margin: 0 auto;
+  }
+
+  .nfse-caxias .alt-card {
+    height: 100%;
+    text-align: left;
+  }
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+  .nfse-caxias .alt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nfse-caxias .alt-card {
+    text-align: left;
+  }
+}
+
+/* ======================================================
+   SEÇÕES CAXIAS — PAINÉIS MODERNOS + TIMELINE INTERATIVA
+====================================================== */
+
+/* === Cores institucionais === */
+.bg-caxias-blue { background-color: #0072bc; } /* Azul Caxias */
+.bg-caxias-gold { background-color: #0072bc; } /* Dourado suave */
+
+.nfse-caxias h2 i {
+  color: #0072bc;
+}
+
+.nfse-caxias .timeline h2  {
+    color: #0072bc;
+}
+/* === Painéis Modernos === */
+.modern-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border: 1px solid #e5e7eb;
+}
+
+.modern-card:hover {
+  background: #fefefe;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.modern-card .icon-circle {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  margin: 40px auto;
+  padding-left: 45px;
+  max-width: 1200px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;       /* distância do topo da seção */
+  height: 23%;     /* controle direto da altura da linha */
+  width: 3px;
+  background-color: #d4d4d4;
+  border-radius: 3px;
+}   
+
+@media (max-width: 600px) {
+  .timeline::before {
+    height: 21%; /* ajuste conforme necessário */
+    margin: -13px;
+  }
+}
+
+
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -33px;
+  top: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.timeline-content h3 {
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* === SEÇÃO SOBRE O PROJETO NFS-E === */
+.nfse-projeto {
+  background: #ffffff;
+  border-left: 5px solid #0072bc;
+  border-radius: 12px;
+  padding: 30px 25px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.nfse-projeto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nfse-projeto p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .nfse-projeto p {
+    text-align: flex-start;
+  }
+}
+
+
+.nfse-projeto b {
+  color: #004aad;
+  font-weight: 600;
+}
+
+/* === Responsivo === */
+@media (max-width: 700px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 25px;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    left: -25px;
+    font-size: 18px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+}
+
+
+.titulo-implantacao-caxias {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  margin-top: 40px; /* espaçamento extra acima do título */
+}
+
+/* ====== Ajuste de tamanho dos títulos em telas pequenas ====== */
+@media (max-width: 600px) {
+  .titulo-implantacao-caxias {
+    font-size: 1.3rem; /* ajuste o valor conforme quiser */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.text-content-wide {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .nfse-projeto .text-content-wide {
+    padding: 0;
+  }
+}
+
+
+.nfse-flow-img {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: 20px auto;
+}
+
+
+
+
+
