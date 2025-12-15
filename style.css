@@ -1,0 +1,1593 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .main-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #0072bc;
+  padding: 15px 20px;
+  gap: 0px; /* espaçamento entre os links */
+}
+
+/* Links do menu */
+.main-menu a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Linha animada (inicialmente invisível) */
+.main-menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%; /* começa centralizada */
+  bottom: -4px;
+  width: 0; /* começa invisível */
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%); /* mantém o centro alinhado */
+}
+
+/* Ao passar o mouse */
+.main-menu a:hover::after {
+  width: 50%; /* define o tamanho da linha (ex: metade do texto) */
+}
+
+/* Efeito hover */
+.main-menu a:hover::after {
+  width: 80%;
+}
+
+/* Efeito extra (opcional): mudar cor do texto no hover */
+.main-menu a:hover {
+  color: #dceeff;
+}
+
+        .menu-container {
+            display: flex;
+            align-items: center;
+            gap: 31px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: 155px;
+            margin-right: 10px;
+        }
+
+        .main-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0 15px;
+        }
+
+        .main-menu a:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Título da página */
+        .page-title {
+            background-color: #00AFEF;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .page-title h1 {
+            font-size: 45px;
+            font-weight: normal;
+        }
+
+        /* Grid de cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 340px);
+            gap: 80px;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 60px;
+            justify-content: center;
+        }
+
+        .option-card {
+            background-color: #2E86C1;
+            border-radius: 12px;
+            height: 190px;
+            width: 350px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #00AFEF;
+            transition: left 0.2s ease-in, left 0.15s ease-out;
+            z-index: -1;
+        }
+
+        .option-card:hover::before {
+            left: 0;
+        }
+
+        .option-card i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: white !important;
+        }
+
+        .option-card h2 {
+            font-size: 20px;
+            margin: 0;
+            color: white;
+            font-weight: normal;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .process-link {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #2980b9;
+            color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            max-width: 1600px;
+            margin-left: 0px;
+            margin-right: 0;
+            padding: 0 10px;
+        }
+
+        .footer-section {
+            flex: 1 1 350px;
+            min-width: 300px;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .footer-section:nth-of-type(2) {
+            margin-left: -130px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            padding-right: 0;
+            line-height: 1.2;
+        }
+
+        .footer-section a::before {
+            content: ">";
+            margin-right: 8px;
+        }
+
+        .footer-section a::after {
+            content: none;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .institutional-footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            font-size: 13px;
+        }
+
+        .institutional-footer p:last-child {
+            font-size: 12px;
+        }
+
+        .development-credits {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.1);
+            font-size: 13px;
+        }
+        
+        .contato-item i {
+            min-width: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .contact-item::before {
+            content: ">";
+            margin-right: 8px;
+            margin-top: -2px;
+            height: 20px;
+        }
+        
+        .contact-item:nth-of-type(2)::before {
+            margin-top: 3px;
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            margin-top: 1px;
+        }
+
+        .contact-item i.fa-map-marker-alt {
+            margin-left: 2px;
+            margin-top: 6px;
+        }
+
+        .contact-item p {
+            color: white;
+            font-size: 14px;
+            font-weight: normal;
+            text-decoration: none;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .address-sub-line {
+            display: block;
+            margin-left: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .left-column, .middle-column, .right-column {
+            white-space: pre-line;
+        }
+
+        /* Media query para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            /* Remove qualquer margem ou padding que possa estar causando o espaço extra */
+            .container, 
+            main, 
+            section, 
+            .main-menu,
+            .menu-links,
+            .grid-container {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: 0;
+                box-sizing: border-box;
+            }
+
+            /* Ajuste para os elementos internos */
+            .grid-container > * {
+                width: 100%;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;  /* Muda para uma única coluna */
+            }
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 5px 0;
+        }
+
+        /* Media query para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            .top-bar-content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);  /* Duas colunas */
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .top-bar-content a {
+                text-align: center;
+                padding: 5px 0;
+            }
+        }
+
+        /* Media query para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            .menu-links {
+                display: flex;
+                flex-direction: row;  /* Mantém os links na horizontal */
+                flex-wrap: wrap;      /* Permite quebra de linha se necessário */
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 10px;           /* Espaçamento entre os links */
+                padding: 10px;
+            }
+
+            .menu-links a {
+                text-align: center;
+                padding: 5px 10px;
+                border: none;        /* Remove a borda que estava separando os links */
+                white-space: nowrap; /* Evita quebra de texto dentro do link */
+            }
+
+            /* Remove o padding-right e a borda direita do último link */
+            .menu-links a:not(:last-child) {
+                border-right: none;
+                padding-right: 10px;
+            }
+
+            .main-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                margin-bottom: 0px;
+            }
+        }
+
+        /* Primeiro, garantimos que o body seja um container flex */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Media query para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .top-bar {
+                order: 999; /* Número alto para garantir que fique por último */
+                margin-top: auto; /* Empurra para o final da página */
+            }
+
+            /* Mantém o main-menu no topo */
+            .main-menu {
+                order: 0;
+            }
+
+            /* Conteúdo principal logo após o menu */
+            main {
+                order: 1;
+            }
+        }
+        .search-container {
+            width: 100%;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .search-form {
+            width: 60%;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #2980b9;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-button:hover {
+            background-color: #1c638b;
+        }
+
+        /* Garantir que o ícone de busca seja branco */
+        .search-button i {
+            color: white !important;
+        }
+        
+        /* Responsivo para celular */
+        @media screen and (max-width: 768px) {
+            .search-form {
+                width: 90%;
+            }
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .option-card {
+            background-color: #2980b9;
+            color: white;
+            padding: 40px 20px;
+            height: 180px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .anistia-card {
+    background-color: #00b800 !important; 
+        }
+
+        .anistia-card:before {
+            background-color: #00D700 !important;
+        }
+
+        .option-card i {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .option-card p {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .option-card a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsivo para celular */
+        @media screen and (max-width: 768px) {
+            .search-form {
+                width: 90%;
+            }
+            
+            .grid-container {
+                display: grid !important; /* Força a aplicação do grid */
+                grid-template-columns: repeat(2, calc(50% - 10px)) !important; /* Duas colunas com espaçamento */
+                gap: 20px !important;
+                padding: 15px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .option-card {
+                width: 100% !important;
+                margin: 0 !important;
+                height: 120px !important; /* Altura um pouco menor para melhor visualização */
+            }
+
+            /* Ajusta o tamanho dos ícones e texto para o layout mobile */
+            .option-card i {
+                font-size: 30px !important;
+                margin-bottom: 10px !important;
+                width: auto !important; 
+                height: auto !important;
+                line-height: normal !important;
+                display: block !important;
+            }
+
+            .option-card h2 {
+                font-size: 14px !important; /* Diminui a fonte para mobile */
+                margin-top: 10px !important;
+                white-space: normal !important;
+                padding: 0 2px !important; /* Ajusta o padding para dar mais espaço */
+            }
+
+            .option-card .option-icon {
+                max-width: 40px !important;
+                max-height: 40px !important;
+                margin-bottom: 10px !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Adicione essas classes para o modo alto contraste */
+        .high-contrast {
+            background-color: black !important;
+            color: white !important;
+        }
+
+        .high-contrast .main-menu,
+        .high-contrast .top-bar,
+        .high-contrast .option-card,
+        .high-contrast .page-title {
+            background-color: black !important;
+            color: white !important;
+            border: 1px solid white !important;
+        }
+
+        .high-contrast a,
+        .high-contrast h1,
+        .high-contrast h2,
+        .high-contrast p,
+        .high-contrast i {
+            color: white !important;
+        }
+
+        .high-contrast .option-card:hover {
+            background-color: #333 !important;
+        }
+
+        /* Estilo específico para o botão de alto contraste */
+        .contrast-button {
+            background: transparent !important;
+            border: none !important;
+            cursor: pointer;
+            color: white !important;
+            padding: 5px 10px;
+        }
+
+        /* Quando estiver em modo de alto contraste */
+        .high-contrast .contrast-button {
+            background: transparent !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .contrast-button:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Responsividade atualizada para o novo espaçamento */
+        @media screen and (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 340px);
+                max-width: 760px; /* (340px * 2) + 80px */
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: 340px;
+                max-width: 340px;
+                gap: 50px; /* Maior espaçamento também no mobile */
+                padding: 40px;
+            }
+        }
+
+        /* Media Queries para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            .grid-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .option-card {
+                width: 90%; /* Ajusta a largura para ocupar 90% da tela */
+                height: 150px; /* Altura um pouco menor para mobile */
+                margin: 0 auto;
+            }
+
+            .page-title {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 14px;
+                padding: 0 15px;
+            }
+
+            .description br {
+                display: none; /* Remove as quebras de linha forçadas no mobile */
+            }
+
+            .search-container {
+                width: 90%;
+                margin: 15px auto;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            /* Ajustes para o menu principal */
+            .main-menu {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .menu-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .menu-links a {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            /* Ajustes para a top-bar */
+            .top-bar-content {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .top-bar-item {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+        
+/* tirei o rodapé. */
+@media (max-width: 600px) {
+    footer {
+        display: none;
+    }
+}
+
+/* Media query para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    /* Bordas arredondadas no título e área de busca */
+    .page-title {
+        border-radius: 8px;
+        margin: 10px 15px;
+        padding: 20px;
+    }
+
+    .search-container {
+        border-radius: 8px;
+        margin: 10px 15px;
+        width: auto;
+    }
+
+    /* Centralização da logo com links */
+    .main-menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        display: flex;
+    }
+
+    .logo {
+        display: block;
+        height: 62px;
+        width: 195px;
+        margin-bottom: 0px; 
+        margin-right: 0;
+    }
+
+    .menu-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu-links a {
+        text-align: center;
+        width: 100%;
+        padding: 5px 0;
+        border-right: none;
+    }
+
+    /* Posição do VLibras */
+    div[vw-access-button] {
+        top: -82px !important; /* Move o botão mais para cima */
+    }
+
+    /* Alto contraste para mobile */
+    .high-contrast .main-menu,
+    .high-contrast .top-bar,
+    .high-contrast .option-card,
+    .high-contrast .page-title,
+    .high-contrast .search-container,
+    .high-contrast .search-input,
+    .high-contrast .search-button {
+        background-color: black !important;
+        color: white !important;
+        border: 1px solid white !important;
+    }
+
+    .high-contrast a,
+    .high-contrast h1,
+    .high-contrast h2,
+    .high-contrast p,
+    .high-contrast i,
+    .high-contrast input,
+    .high-contrast ::placeholder {
+        color: white !important;
+    }
+
+    .high-contrast .search-input::placeholder {
+        color: white !important;
+    }
+}
+
+.siteplantaofiscal .accordion {
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    margin-left: 252px;
+    height: 800px !important;  /* Aumentando a altura do fundo branco e forçando com !important */
+    background: #fdfdfd;
+}
+
+
+h4 {
+    font-size: 16px;
+    
+}
+h2 {
+    font-weight: 100;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+}
+
+.text-dos-botoes {
+  max-width: 100%;       /* mantém a largura máxima */
+  margin-left: 15%;       /* margem esquerda maior para deslocar à esquerda */
+  margin-right: 15%;     /* margem direita automática para manter o alinhamento */
+  margin-top: 20px;
+  margin-bottom: 20px;    /* margens verticais */
+  padding: 0 15px;        /* padding lateral */
+}
+
+
+.text-dos-botoes p {
+  text-align: justify;
+  text-justify: inter-word;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .text-dos-botoes {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  .text-dos-botoes p {
+    text-align: center;
+  }
+
+  /* Listas alinhadas à esquerda mesmo no celular */
+  .text-dos-botoes ul,
+  .text-dos-botoes ol,
+  .text-dos-botoes li {
+    text-align: left !important;
+    padding-left: 20px; /* garante espaço para marcadores */
+  }
+}
+
+
+.centralizar {
+  text-align: center !important;
+  width: 100%;
+  margin-bottom: 50px !important;
+}
+
+@media (max-width: 768px) {
+  .centralizar {
+    text-align: justify !important;
+    max-width: 90%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Estilos para a linha divisória genérica */
+.section-divider {
+    margin: 40px auto;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* Estilos para o contêiner de texto genérico abaixo dos cards */
+.text-content-after-cards {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a, .text-content-after-cards a, .text-dos-botoes a, .iss-text-container a, .text-content-after-cards p a, .text-dos-botoes p a, .iss-text-container p a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.content-container {
+    padding: 120px;
+    width: 70vw;
+    margin: 0 auto;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.content-container:hover {
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .verificar-nfse i {
+    margin-top: 15px;
+  }
+  .verificar-nfse h2 {
+    margin-top: 5px !important;
+  }
+  .page-title {
+    height: 68px;
+  }
+}
+
+
+p > strong {
+  display: inline-block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* sombra leve */
+}
+
+
+ul {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+ul li {
+  margin-bottom: 0px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ANISTIA 2025 PAGE */
+
+
+#anistia2025 .document-description {
+    font-size: 16px; /* aumenta a fonte */
+    margin-bottom: 1.25rem; /* aumenta o espaçamento */
+}
+
+#anistia2025 .document-entry a {
+    font-weight: 500;
+    color: #2980b9;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+#anistia2025 .fake-link {
+    font-size: 16px; /* aumenta a fonte */
+    margin-bottom: 1.25rem; /* aumenta o espaçamento */
+}
+#anistia2025 .accordion {
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #fdfdfd;
+    max-width: 861px;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
+}
+
+.option-card .option-icon {
+    width: 64px;  /* largura do container */
+    height: 64px; /* altura do container */
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1);
+}
+
+.option-card .option-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* mantém proporção da imagem */
+}
+
+/* Pop-up Overlay */
+#popup-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fixo na tela */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que o pop-up esteja acima de outros elementos */
+}
+
+/* Pop-up Container */
+#popup-container {
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+    max-width: 90vw; /* Usar viewport width para maior flexibilidade */
+    max-height: 90vh; /* Usar viewport height para maior flexibilidade */
+    width: auto; /* Ajusta a largura ao conteúdo */
+    height: auto; /* Ajusta a altura ao conteúdo */
+    display: flex; /* Adiciona flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza itens horizontalmente */
+    overflow: hidden; /* Corta o conteúdo que exceder as dimensões */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+}
+
+/* Close Button */
+#popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001; /* Garante que o botão esteja acima do overlay */
+}
+
+/* Carousel Wrapper */
+#carousel-wrapper {
+    position: relative;
+    width: 100%; /* Ocupa a largura total do container pai */
+    /* height: 100%; */ /* Removendo para permitir que a altura seja determinada pela imagem */
+    margin: auto;
+    overflow: hidden; /* Esconde partes das imagens que excedem */
+    /* display: flex; */ /* Removendo flexbox para este elemento */
+    /* justify-content: center; */ /* Removendo flexbox para este elemento */
+    /* align-items: center; */ /* Removendo flexbox para este elemento */
+}
+
+/* Carousel Items (Images) */
+.carousel-item {
+    display: none; /* Escondido por padrão */
+    width: 100%;
+    /* height: 100%; */ /* Removendo para permitir que a altura seja determinada pela imagem */
+}
+.carousel-item.active {
+    display: block; /* Mostra o item ativo */
+}
+
+.carousel-item img {
+    width: 100%; /* Ajuste para preencher a largura do carousel-item */
+    height: auto; /* Ajuste para não forçar a altura e manter a proporção */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura do contêiner */
+    display: block; /* Remove espaço extra abaixo da imagem */
+    object-fit: contain; /* Redimensiona a imagem para caber no contêiner, mantendo a proporção */
+}
+
+/* Navigation Arrows */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.8); /* Fundo semi-transparente para as setas */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: #00AFEF;
+}
+
+/* Media Queries para responsividade do pop-up */
+@media screen and (max-width: 768px) {
+    #popup-container {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+#anistia2025 .accordion-header {
+        text-align: left;
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+#anistia2025 .accordion {
+    padding: 0px 20px 0px 20px;
+        width: 100%;
+    }
+/* Estilo para imagens dentro dos cards de opção */
+.option-card .option-icon {
+    width: 64px; /* Largura da imagem */
+    height: 64px; /* Altura da imagem */
+    margin-bottom: 15px; /* Margem inferior, igual ao ícone */
+    filter: brightness(0) invert(1);
+}
+}
+
+/* BARRA DE PESQUISA DROP DOWN /*
+
+/* Container da pesquisa */
+.search-container {
+    position: relative;
+}
+
+#searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 390px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 9999;
+    display: none;
+    padding: 5px 0; /* espaço interno do container */
+}
+
+#searchResults .result-item {
+    padding: 10px 10px;  /* mantém padding interno */
+    margin: 10px 0;      /* margem top e bottom de 10px */
+    font-size: 24px;     /* aumenta a fonte */
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center; /* alinha imagem e texto verticalmente */
+}
+
+#searchResults .result-item img {
+    margin-right: 5px;       /* espaçamento entre imagem e texto */
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(0);
+}
+
+#searchResults .result-item:hover {
+    background: #f0f0f0;
+}
+
+#searchResults .no-results {
+    padding: 10px;
+    color: #888;
+    font-size: 16px;   /* mesmo tamanho de fonte que os itens */
+}
+
+/* Esconde o fake-link apenas em telas pequenas (mobile) */
+@media (max-width: 768px) {
+    #searchResults .result-item span.fake-link {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #searchResults .result-item .fake-link,
+    #searchResults .result-item .no-img {
+        display: none !important; /* força esconder */
+    }
+}
+
+@media (max-width: 768px) {
+    #searchResults .result-item {
+        font-size: 14px;
+    }
+    #searchResults .result-item strong {
+    margin-right: 10px;
+    }   
+}
+
+
+
+
+
+/* ====== AJUSTE DE GRID E LAYOUT ====== */
+.nfse-caxias .alt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Cada card ocupa toda a altura da linha */
+.nfse-caxias .alt-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.nfse-caxias .alt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ====== ÍCONES ====== */
+.nfse-caxias .icon-circle {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Azul e dourado (tons da prefeitura) */
+.bg-caxias-blue {
+  background-color: #2a66b0; /* azul institucional */
+}
+
+.bg-caxias-gold {
+  background-color: #2a66b0; /* dourado/laranja suave */
+}
+
+/* ====== TEXTOS ====== */
+.nfse-caxias .alt-card h3 {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.nfse-caxias .alt-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Links mais elegantes */
+.nfse-caxias .nfse-link {
+  margin-top: 15px;
+  align-self: flex-start;
+  color: #2a66b0;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid #2a66b0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+}
+
+.nfse-caxias .nfse-link:hover {
+  background-color: #0072bc;
+  color: white;
+}
+
+/* ====== TÍTULOS DAS SEÇÕES ====== */
+.nfse-caxias h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0072bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 4px solid #0072bc;
+  padding-bottom: 30px;
+  margin-bottom: 45px;
+  margin-top: 45px;
+}
+
+/* ====== Ajuste de tamanho dos títulos em telas pequenas ====== */
+@media (max-width: 600px) {
+  .nfse-caxias h2 {
+    font-size: 1.3rem; /* ajuste o valor conforme quiser */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* ====== LAYOUT ESPECÍFICO PARA COMPUTADOR ====== */
+@media (min-width: 1024px) {
+  .nfse-caxias .alt-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards lado a lado */
+    gap: 35px; /* um pouco mais de espaçamento para respirar */
+    max-width: 1200px; /* opcional: centraliza o conteúdo */
+    margin: 0 auto;
+  }
+
+  .nfse-caxias .alt-card {
+    height: 100%;
+    text-align: left;
+  }
+
+  body.sitereforma .nfse-caxias .alt-card h3 {
+    text-align: center;
+}
+
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+  .nfse-caxias .alt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nfse-caxias .alt-card {
+    text-align: left;
+  }
+}
+
+/* ======================================================
+   SEÇÕES CAXIAS — PAINÉIS MODERNOS + TIMELINE INTERATIVA
+====================================================== */
+
+/* === Cores institucionais === */
+.bg-caxias-blue { background-color: #0072bc; } /* Azul Caxias */
+.bg-caxias-gold { background-color: #0072bc; } /* Dourado suave */
+
+.nfse-caxias h2 i {
+  color: #0072bc;
+}
+
+.nfse-caxias .timeline h2  {
+    color: #0072bc;
+}
+/* === Painéis Modernos === */
+.modern-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border: 1px solid #e5e7eb;
+}
+
+.modern-card:hover {
+  background: #fefefe;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.modern-card .icon-circle {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* === TIMELINE === */
+.timeline {
+  position: relative;
+  margin: 40px auto;
+  padding-left: 45px;
+  max-width: 1200px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;       /* distância do topo da seção */
+  height: 23%;     /* controle direto da altura da linha */
+  width: 3px;
+  background-color: #d4d4d4;
+  border-radius: 3px;
+}   
+
+@media (max-width: 600px) {
+  .timeline::before {
+    height: 21%; /* ajuste conforme necessário */
+    margin: -13px;
+  }
+}
+
+
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -33px;
+  top: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.timeline-content h3 {
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* === SEÇÃO SOBRE O PROJETO NFS-E === */
+.nfse-projeto {
+  background: #ffffff;
+  border-left: 5px solid #0072bc;
+  border-radius: 12px;
+  padding: 30px 25px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.nfse-projeto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nfse-projeto p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: left  ;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .nfse-projeto p {
+    text-align: flex-start;
+  }
+}
+
+
+.nfse-projeto b {
+  color: #004aad;
+  font-weight: 600;
+}
+
+/* === Responsivo === */
+@media (max-width: 700px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 25px;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    left: -25px;
+    font-size: 18px;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+}
+
+
+.titulo-implantacao-caxias {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  margin-top: 40px; /* espaçamento extra acima do título */
+}
+
+/* ====== Ajuste de tamanho dos títulos em telas pequenas ====== */
+@media (max-width: 600px) {
+  .titulo-implantacao-caxias {
+    font-size: 1.3rem; /* ajuste o valor conforme quiser */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Corrige o body flex que quebra o layout */
+  body.sitenfse {
+    display: block !important;
+  }
+
+  /* Garante largura total real */
+  .nfse-projeto {
+    width: 100%;
+  }
+
+  .nfse-projeto .text-content-wide {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px;
+    box-sizing: border-box;
+  }
+
+  /* Título */
+  .nfse-projeto .text-content-wide h1 {
+    font-size: 1.35rem;
+    margin: 0 0 16px 0;
+    text-align: center;
+    color: #004aad;
+  }
+
+  /* Texto */
+  .nfse-projeto .text-content-wide p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+
+
+    
+
+
+.nfse-flow-img {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: 20px auto;
+}
+
+
+
+
+

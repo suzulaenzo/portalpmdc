@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!-- Desenvolvido por -->
+         <!-- Rafael Mello (github/RafaelLMello) -->
+          <!-- e Enzo Suzula (github/suzulaenzo) -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PMDC - ISS</title>
+
+          <!-- Open Graph (Facebook, LinkedIn etc) -->
+        <meta property="og:title" content="PMDC - Portal do Contribuinte" />
+        <meta property="og:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta property="og:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+        <meta property="og:url" content="https://portalpmdc.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PMDC - Portal do Contribuinte" />
+        <meta name="twitter:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta name="twitter:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+        
+        
+        <style>
+            @font-face {
+                font-family: 'AaltoSansEssentialLight';
+                src: url('AaltoSansEssential.ttf') format('truetype');
+                font-display: swap;
+            }
+            
+            .option-card {
+                position: relative;
+                cursor: pointer;
+            }
+
+            .option-card a.process-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: inherit;
+                z-index: 1;
+            }
+
+            .option-card i {
+                position: relative;
+                z-index: 2;
+            }
+
+            .option-card h2 {
+                position: relative;
+                z-index: 2;
+            }
+
+            .page-title h1 {
+                margin-bottom: 0px;
+            }
+
+            .accordion {
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                margin-left: 250px;
+            }
+
+            .accordion-header {
+                background-color: #2980b9;
+                cursor: pointer;
+                padding: 15px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffffff;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .accordion-content {
+                display: none;
+                padding: 15px;
+                background: #fdfdfd;
+                font-size: 16px;
+            }
+
+            .document-entry {
+                display: flex;
+                align-items: baseline;
+            }
+
+            .document-entry a {
+                font-weight: bold;
+                color: #2980b9;
+                text-decoration: none;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+
+            .document-description {
+                color: #000000;
+                font-size: 16px;
+                text-align: justify;
+                flex-grow: 1;
+            }
+
+            @media screen and (max-width: 768px) {
+                .accordion {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    width: auto;
+                }
+
+                .accordion-header {
+                    text-align: left;
+                    font-size: 20px;
+                    padding: 12px;
+                }
+
+                .document-entry {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 15px;
+                    padding: 5px 0;
+                }
+
+                .document-entry a {
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin-right: 8px;
+                }
+
+                .document-description {
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+            }
+        </style>
+        
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+<body>
+
+        <nav class="main-menu">
+            <img src="img/logonova.png" alt="Logo Duque de Caxias" class="logo">
+
+            <div class="menu-links">
+                <a href="anistia2025.html">Anistia 2025</a>
+                <a href="index.html">Página Inicial</a>
+                <a href="sitelegislacao.html">Legislação</a>
+                <a href="siteformularios.html">Formulários</a> 
+                <a href="siteplantaofiscal.html">Fale conosco</a>
+            </div>
+        </nav>
+
+        <div class="page-title">
+            <h1>ISS</h1>
+        </div>
+
+        <div class="search-container">
+            <form class="search-form" onsubmit="return false;">
+                <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <div id="searchResults"></div>
+        </div>
+        
+        <div class="grid-container" id="optionsGrid">
+            <!-- Primeira linha -->
+            <div class="option-card" data-search="declarar dte guias emitir ">
+                <a href="https://www.issnetonline.com.br/duquedecaxias/online/Login/Login.aspx?ReturnUrl=%2fduquedecaxias%2fonline" class="process-link">
+                    <img src="img/declararservico.png" alt="Guia IPTU" class="option-icon">
+                    <h2>Declarar serviços, <br> Emitir guias, DTE</h2>
+                </a>
+            </div>
+            
+            <div class="option-card" data-search="validar carta isençao inseção insençao">
+                <a href="https://www.issnetonline.com.br/duquedecaxias/online/Certidao_Baixa/Certidao_Baixa.aspx " class="process-link">
+                    <img src="img/emitircertidao.png" alt="Guia IPTU" class="option-icon">
+                    <h2>Emitir Certidão de Baixa</h2>
+                </a>
+            </div>
+            
+
+            <div class="option-card" data-search="impressao cadastral economico">
+                <a href="https://www.issnetonline.com.br/duquedecaxias/online/Contribuinte/ConsultaSubstitutosTributarios.aspx" class="process-link">
+                    <img src="img/consultarsubstitutos.png" alt="Guia IPTU" class="option-icon">
+                    <h2>Consultar Substitutos Tributários</h2>
+                </a>
+            </div>
+
+            <div class="option-card" data-search="impressao impressão cadastral economico">
+                <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/EmitirBCI.aspx?m=2982" class="process-link">
+                    <img src="img/certidaocadastral.png" alt="ISS" class="option-icon">
+                    <h2>Certidão Cadastral Econômica</h2>
+                </a>
+            </div>
+
+            <div class="option-card" data-search="CNAE cnae iss codigo">
+                <a href="pdfs/RelacionamentoCNAExItemLCatualizado24082023.pdf" class="process-link">
+                    <img src="img/cnaecodigo.png" alt="Guia IPTU" class="option-icon">
+                    <h2>CNAE x Código ISS</h2>
+                </a>
+            </div>
+
+            <div class="option-card" data-search="leis legislaçao">
+                <a href="sitelegislacao.html" class="process-link">
+                    <img src="img/legislacao.png" alt="Legislação" class="option-icon">
+                    <h2>Legislação</h2>
+                </a>
+            </div>
+
+            <div class="option-card" data-search="formularios formu">
+                <a href="siteformularios.html" class="process-link">
+                    <img src="img/legislacao.png" alt="Legislação" class="option-icon">
+                    <h2>Formulários </h2>
+                </a>
+            </div>
+                </a>
+            </div>
+        </div>
+
+        <hr style="margin: 40px auto; width: 100%; border: 0; border-top: 1px solid #eee;">
+
+        <div class="iss-text-container" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+            <h4>O que é ISS?</h4>
+            <br>
+            <p>O&nbsp;Imposto sobre Serviços de Qualquer Natureza – ISS ou ISSQN – é um tributo previsto no art. 156, III, da Constituição Federal de 1988, cuja competência é dos Municípios e do Distrito Federal. Em Duque de Caxias, é disciplinado pelos artigos 104 a 142 da Lei Municipal 1.664/02, bem como em demais institutos normativos, que podem ser acessados através da nossa&nbsp;<a href="sitelegislacao.html">Seção de Legislação</a>.</p>
+            <br>    
+            <p>Alíquotas para o ISS vigentes no município de Duque de Caxias estão dispostas junto ao Artigo 113º do Código Tributário Municipal.</p>
+            <br>  
+            <h4 style="margin-bottom: 10px;">Como funciona?</h4>
+            <p>O empresário estabelecido no município deverá inscrever-se na repartição fiscal competente antes do início de quaisquer atividades. Após obtida a inscrição municipal, será possível a emissão da Nota Fiscal de Serviço.</p>
+            <br>  
+            <h4 style="margin-bottom: 10px;">Quem paga?</h4>
+            <p>Os profissionais autônomos e empresas prestadoras de serviços estabelecidos no município. Os contribuintes são responsáveis pela emissão das Notas Fiscais de Serviços Eletrônica através de sistema próprio, com o envio da XML da NFS-e para o sistema da prefeitura a fim de que possa ser gerada a guia de pagamento ao final de cada mês. As guias são acessadas no <a href="https://www.issnetonline.com.br/duquedecaxias/online/Login/Login.aspx?ReturnUrl=%2fduquedecaxias%2fonline">Portal do ISS</a>.</p>
+            <br>  
+            <p><strong>Atenção!</strong> No entanto, em alguns casos, a legislação de Duque de Caxias (Art. 124 do CTM) atribui a responsabilidade pela retenção e pagamento a outra pessoa, o responsável tributário. Nesse caso, o ISS retido é devido pelo tomador do serviço (aquele que contrata o serviço) e o pagamento é de sua responsabilidade! Dessa forma, o contratante do serviço paga ao prestador o valor "descontando" o ISS, declara a contratação desse serviço no <a href="https://www.issnetonline.com.br/duquedecaxias/online/Login/Login.aspx?ReturnUrl=%2fduquedecaxias%2fonline">Portal do ISS</a>, e paga a Duque de Caxias o valor correspondente ao gerar a guia.</p>
+            <br>  
+            <p>Se o tomador do serviço não for estabelecido em Duque de Caxias, não tiver inscrição municipal, e for o responsável pelo pagamento do ISS retido, deverá solicitar <a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/Home.aspx">Cadastramento para Contribuintes de outros Municípios</a>. Assim, após deferido seu cadastro, poderá declarar as notas fiscais e gerar a guia de pagamento no <a href="https://www.issnetonline.com.br/duquedecaxias/online/Login/Login.aspx?ReturnUrl=%2fduquedecaxias%2fonline">Portal do ISS</a>.</p>
+            <br>  
+            <h4 style="margin-bottom: 10px;">Simples Nacional</h4>
+            <p>Para o contribuinte que ultrapassou o sublimite do Simples Nacional, tendo que recolher o ISS direto junto ao município, o mesmo deve primeiramente realizar a declaração das PGDAS 48 horas antes do vencimento da Guia de ISS Municipal (em regra, dia 10 do mês subsequente). A partir dessa declaração, o sistema irá verificar se o contribuinte deverá recolher o ISS diretamente junto ao município ou não.</p>
+            <br>  
+            <p>Após a realização da declaração o contribuinte consegue realizar a emissão da guia através do <a href="https://www.issnetonline.com.br/duquedecaxias/online/Login/Login.aspx?ReturnUrl=%2fduquedecaxias%2fonline">Portal do ISS</a>. A impressão da guia será gerada na opção "Extrato" do menu principal, consultando por guias com status "Aberto".</p>
+            <br>
+           <h4>Para Emitir uma Taxa de Expediente:</h4>
+        <ul>
+            <li><a href="https://www.tributosnet.com.br/duquedecaxias/portal/Modulos/Home.aspx">Acesse o serviço online.</a></li>
+            <li>Clique em emissão de guia.</li>
+            <li>Selecione o tipo de inscrição (Imobiliária, Econômica ou Cadastro de Taxa).</li>
+            <li>Digite no campo a inscrição, o código, o CPG/CNPJ ou a matrícula.</li>
+            <li>Clique em Gerar Taxa, Taxa de Expediente no rodapé da página.</li>
+
+
+
+        </ul>    
+
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OUTROS PORTAIS</h3>
+                <a href="https://duquedecaxias.rj.gov.br/">Prefeitura Municipal de Duque de Caxias</a>
+                <a href="http://www.gov.br/pt-br">Governo Federal</a>
+                <a href="https://www12.senado.leg.br/hpsenado">Senado Federal</a>
+                <a href="https://www.camara.leg.br/">Câmara dos Deputados</a>
+                <a href="https://www.rj.gov.br/">Governo Estadual</a>
+                <a href="http://www.cmdc.rj.gov.br/?page_id=7592">Leis Municipais</a>
+                <a href="https://transparencia.duquedecaxias.rj.gov.br/">Portal Transparência</a>
+            </div>
+            <div class="footer-section">
+                <h3>FALE CONOSCO</h3>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>plantaofiscal.sefazplan@duquedecaxias.rj.gov.br</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="font-size: 16px !important; width: 16px; height: 16px;"></i>
+
+                        <p>Praça Roberto da Silveira, 31 - Térreo<br>Jardim 25 de Agosto, Duque de Caxias/RJ</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                  <p>Segunda à Sexta, 9h - 17h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="institutional-footer">
+            <p>Sede da Prefeitura Municipal de Duque de Caxias - Alameda Esmeralda 206, JD. Primavera, Duque de Caxias / RJ</p>
+            <p>CEP: 25215-260 - TEL: (21) 2773-6200 CNPJ: 29.138.328/0001-50</p>
+        </div>
+
+        <div class="development-credits">
+            <p>Desenvolvido pela: Secretaria de Fazenda / Subsecretaria de Tecnologia.</p>
+        </div>
+    </footer>
+
+    <script src="script/pesquisa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+</body>
+</html>
