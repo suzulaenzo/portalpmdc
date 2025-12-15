@@ -1477,11 +1477,32 @@ ul li {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
+.nfse-projeto .nfse-title {
+  text-align: center;
+  color: #004aad;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+@media (max-width: 700px) {
+    .nfse-projeto {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+  .nfse-projeto .nfse-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+}
+
 .nfse-projeto p {
   color: #333;
   font-size: 1rem;
   line-height: 1.8;
-  text-align: left  ;
+  text-align: justify;
   margin: 0;
 }
 
@@ -1490,7 +1511,6 @@ ul li {
     text-align: flex-start;
   }
 }
-
 
 .nfse-projeto b {
   color: #004aad;
@@ -1544,52 +1564,14 @@ ul li {
 .text-content-wide {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 20px;
 }
 
-.text-content-wide h1 {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: -30px;
-    margin-bottom: 25px;
-    color: #004aad;
-}
 @media (max-width: 600px) {
-
-  /* Corrige o body flex que quebra o layout */
-  body.sitenfse {
-    display: block !important;
-  }
-
-  /* Garante largura total real */
-  .nfse-projeto {
-    width: 100%;
-  }
-
   .nfse-projeto .text-content-wide {
-    width: 100%;
-    max-width: 100%;
-    padding: 20px 16px;
-    box-sizing: border-box;
-  }
-
-  /* Título */
-  .nfse-projeto .text-content-wide h1 {
-    font-size: 1.35rem;
-    margin: 0 0 16px 0;
-    text-align: center;
-    color: #004aad;
-  }
-
-  /* Texto */
-  .nfse-projeto .text-content-wide p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    padding: 0;
   }
 }
-
-    
 
 
 .nfse-flow-img {
