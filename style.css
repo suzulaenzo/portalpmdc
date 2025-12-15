@@ -1541,6 +1541,20 @@ ul li {
   }
 }
 
+.text-content-wide {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.text-content-wide h1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 25px;
+    color: #004aad;
+}
 @media (max-width: 600px) {
 
   /* Corrige o body flex que quebra o layout */
@@ -1574,8 +1588,6 @@ ul li {
     line-height: 1.6;
   }
 }
-
-
 
     
 
