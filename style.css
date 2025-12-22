@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -1502,7 +1502,7 @@ ul li {
   color: #333;
   font-size: 1rem;
   line-height: 1.8;
-  text-align: justify;
+  text-align: start;
   margin: 0;
 }
 
@@ -1581,7 +1581,41 @@ ul li {
   margin: 20px auto;
 }
 
+@media screen and (max-width: 768px) {
+    /* Aplica espaçamento lateral somente na página sitenfse, no bloco "AVISO IMPORTANTE" */
+    body.sitenfse .nfse-projeto {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding-left: 14px;
+        padding-right: 14px;
+        box-sizing: border-box;
+        max-width: calc(100% - 32px);
+    }
 
+    body.sitenfse .nfse-projeto .text-content-wide {
+        margin: 0;
+        padding: 0;
+    }
 
+    body.sitenfse .nfse-projeto .nfse-title {
+        margin: 0 0 12px 0;
+        padding: 0;
+        word-break: break-word;
+    }
 
+    body.sitenfse .nfse-projeto p {
+        margin: 0;
+        padding: 0;
+        word-break: break-word;
+    }
 
+    @media (max-width: 480px) {
+        body.sitenfse .nfse-projeto {
+            margin-left: 12px;
+            margin-right: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+            max-width: calc(100% - 24px);
+        }
+    }
+}
