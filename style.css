@@ -1395,7 +1395,7 @@ ul li {
   left: 0;
   top: 0px;       /* distância do topo da seção */
   height: 23%;     /* controle direto da altura da linha */
-  width: 3px;
+  width: 0px;
   background-color: #d4d4d4;
   border-radius: 3px;
 }   
