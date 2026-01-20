@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PMDC - Reforma Tributária</title>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
           <!-- Open Graph (Facebook, LinkedIn etc) -->
         <meta property="og:title" content="PMDC - Portal do Contribuinte" />
@@ -119,19 +120,148 @@
     <p>
       Caro contribuinte, 
       <BR>
-      Informamos que o o webservice no padrão nacional estará em produção em <b>05/01/2026</b>, visto que o ambiente nacional no novo layout estará disponível apenas nessa data para recebimento.
-      Comunicamos também, que todos os municípios atendidos pela <b>Nota Control</b> terão <b>até 31/01/2026</b> para se homologar. Portanto o webservice atual "Abrasf 204" será desativado apenas em <b>01/02/2026</b>.
+      Informamos que o Município de Duque de Caxias não aderiu ao Emissor Nacional de Nota Fiscal de Serviços Eletrônica (NFS-e).
       <br>
-      Para que possam adequar suas soluções, segue o link do manual com exemplos de xml e xsd de validação:<BR>
-      <a href="https://www.notacontrol.com.br/download/nfse/Manual_integracao_v101.pdf"><b><u>Clique aqui para acessar.</u></b></a>
+      Dessa forma, a emissão da NFS-e deverá ser realizada exclusivamente por sistemas próprios, os quais devem estar integrados ao webservice disponibilizado pela Prefeitura e adequados ao novo padrão nacional da NFS-e.<BR>
+      Para auxiliar na adequação das soluções tecnológicas, disponibilizamos o <a href="https://www.notacontrol.com.br/download/nfse/Manual_integracao_v101.pdf"><b><u>Manual Técnico</u></b></a> com exemplos de xml e xsd de validação
       <br>
-      Além disso, disponibilizamos também um validador da estrutura do xml: <BR>
-      <a href="https://nfse.issnetonline.com.br/wsnfsenacional/homologacao/validarxml"><b><u>Clique aqui para acessar.</u></b></a>
+      Além disso, está disponível um <a href="https://nfse.issnetonline.com.br/wsnfsenacional/homologacao/validarxml"><b><u>Validador da Estrutura do XML</u></b></a>, que pode ser utilizado para verificar a conformidade dos arquivos antes do envio<BR>
     </p>
   </div>
 </section>
 
-  <div class="text-content-wide">
+<div class="cnae-consulta">
+
+  <h1>Consulta CNAE, LC116 e NBS</h1>
+
+  <!-- TABS -->
+  <div class="tab">
+    <button class="tablinks active" onclick="openTab(event,'codigo')">
+      Consulta por Código
+    </button>
+    <button class="tablinks" onclick="openTab(event,'descricao')">
+      Consulta por Descrição LC116
+    </button>
+    <button class="tablinks" onclick="openTab(event, 'descricaoNBS')">
+  Consulta por Descrição NBS
+</button>
+
+  </div>
+
+  <!-- ===============================
+       TAB: CONSULTA POR CÓDIGO
+  =============================== -->
+ <div id="codigo" class="tabcontent">
+
+
+    <!-- LINHA DE INPUTS -->
+    <div class="form-linha">
+
+      <div class="row autocomplete">
+        <label for="cnae">CNAE:</label>
+        <input id="cnae" placeholder="Digite o CNAE" autocomplete="off">
+        <ul id="cnaeList"></ul>
+      </div>
+
+      <div class="row autocomplete">
+        <label for="lc116">LC116:</label>
+        <input id="lc116" placeholder="Digite o LC116" autocomplete="off">
+        <ul id="lc116List"></ul>
+      </div>
+
+      <div class="row autocomplete">
+        <label for="nbs">NBS:</label>
+        <input id="nbs" placeholder="Digite o NBS" autocomplete="off">
+        <ul id="nbsList"></ul>
+      </div>
+
+    </div>
+
+    <!-- BOTÃO -->
+    <button id="limpar">Limpar</button>
+
+    <!-- TABELA -->
+    <table>
+      <thead>
+        <tr>
+          <th>CNAE</th>
+          <th>Descrição CNAE</th>
+          <th>LC116</th>
+          <th>Descrição LC116</th>
+          <th>NBS</th>
+          <th>Descrição NBS</th>
+        </tr>
+      </thead>
+      <tbody id="resultadoCodigo"></tbody>
+    </table>
+  </div>
+
+  <!-- ===============================
+       TAB: CONSULTA POR DESCRIÇÃO
+  =============================== -->
+  <div id="descricao" class="tabcontent">
+
+    <div class="row autocomplete">
+      <label for="buscaLc">Descrição LC116:</label>
+      <input id="buscaLc" placeholder="Digite a descrição da LC116" autocomplete="off">
+      <ul id="buscaLcList"></ul>
+    </div>
+    <button id="limpar-lc116">Limpar</button>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>LC116</th>
+          <th>Descrição LC116</th>
+          <th>CNAE</th>
+          <th>Descrição CNAE</th>
+          <th>NBS</th>
+          <th>Descrição NBS</th>
+        </tr>
+      </thead>
+      <tbody id="resultadoDesc"></tbody>
+    </table>
+  </div>
+
+  <div id="descricaoNBS" class="tabcontent">
+
+  <div class="row autocomplete">
+    <label for="buscaNbs">Descrição NBS:</label>
+    <input
+      type="text"
+      id="buscaNbs"
+      placeholder="Digite a descrição do NBS"
+      autocomplete="off"
+    />
+    <ul id="buscaNbsList"></ul>
+  </div>
+
+  <!-- BOTÃO LIMPAR EXCLUSIVO fora da div autocomplete -->
+  <button id="limpar-nbs">Limpar</button>
+
+  <table class="resultado">
+    <thead>
+    <tr>
+      <th>NBS</th>
+      <th>Descrição NBS</th>
+      <th>CNAE</th>
+      <th>Descrição CNAE</th>
+      <th>LC116</th>
+      <th>Descrição LC116</th>
+    </tr>
+  </thead>
+    <tbody id="resultadoDescNBS"></tbody>
+  </table>
+
+</div>
+
+
+
+
+</div>
+
+
   <section class="nfse-section nfse-caxias">
     <h2><i class="fas fa-balance-scale"></i> Nova Legislação Nacional</h2>
       <div class="alt-grid">
@@ -171,7 +301,16 @@
         </p>
       <a href="pdfs/decreto 9066.pdf" class="nfse-link blue">📘 Ver Novo Decreto</a>
     </div>
+    <div class="alt-card modern-card">
+          <div class="icon-circle bg-caxias-blue"><i class="fas fa-gavel"></i></div>
+          <h3>Portaria Nº 000001/2026</h3>
+          <p>
+          Dispõe sobre a emissão da Nota Fiscal de Serviços Eletrônica (NFS-e), conforme o padrão nacional, estabelecendo diretrizes, procedimentos e requisitos para sua utilização.
+        </p>
+      <a href="pdfs/PortariaNotaFiscal.pdf" class="nfse-link blue">📘 Ver Norma</a>
+    </div>
   </div>
+  
 </section>
 
 <!-- SEÇÃO: Como vai funcionar em Duque de Caxias -->
@@ -255,7 +394,7 @@
     <div class="timeline-item">
       <div class="timeline-icon bg-caxias-blue"><i class="fas fa-cogs"></i></div>
       <div class="timeline-content">
-        <h3>Fase 1 – Atual</h3>
+        <h3>Fase 1 – Primeiras Adaptações</h3>
         <p>
           Adequação dos sistemas municipais e integração com o Ambiente Nacional.
           Manutenção do Emissor Próprio durante a transição.
@@ -277,7 +416,7 @@
     <div class="timeline-item">
       <div class="timeline-icon bg-caxias-blue"><i class="fas fa-chart-line"></i></div>
       <div class="timeline-content">
-        <h3>Fase 3 – 2026</h3>
+        <h3>Fase 3 – Atual</h3>
         <p>
           Avaliação do período de transição e preparação para adequação aos novos impostos IBS e CBS.
         </p>
@@ -296,6 +435,7 @@
 
       <section class="nfse-section nfse-caxias">
     <div class="alt-grid">
+      </div>
       </div>
 
       <!-- SEÇÃO: Sobre o Projeto NFS-e Nacional -->
@@ -456,5 +596,6 @@
 
     <script src="script/pesquisa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <script src="script/consulta-cnae.js"></script>
 </body>
 </html>

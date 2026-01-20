@@ -5,7 +5,6 @@ const files = [
     '/siteatendimento.html',
     '/siteautonomo.html',
     '/sitecertidoes.html',
-    '/siteconteudo.html',
     '/siteformularios.html',
     '/siteiptu.html',
     '/siteiss.html',
