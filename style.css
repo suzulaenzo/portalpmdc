@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -517,6 +517,20 @@
 
         .anistia-card:before {
             background-color: #00D700 !important;
+        }
+
+        /* SOMENTE o card/botão "Reforma Tributária" */
+        .option-card--reforma {
+            background-color: #358200 !important;
+        }
+
+        .option-card--reforma::before {
+            background-color: #41A100 !important;
+        }
+
+        .option-card--vigilancia .option-icon {
+            width: 78px !important;
+            height: 78px !important;
         }
 
         .option-card i {
@@ -1395,7 +1409,7 @@ ul li {
   left: 0;
   top: 0px;       /* distância do topo da seção */
   height: 23%;     /* controle direto da altura da linha */
-  width: 3px;
+  width: 0px;
   background-color: #d4d4d4;
   border-radius: 3px;
 }   
@@ -1502,7 +1516,7 @@ ul li {
   color: #333;
   font-size: 1rem;
   line-height: 1.8;
-  text-align: justify;
+  text-align: start;
   margin: 0;
 }
 
@@ -1549,8 +1563,10 @@ ul li {
   margin-inline-end: 0;
   font-weight: bold;
   unicode-bidi: isolate;
-  margin-top: 40px; /* espaçamento extra acima do título */
+  margin-top: 40px;
+  text-align: center;
 }
+
 
 /* ====== Ajuste de tamanho dos títulos em telas pequenas ====== */
 @media (max-width: 600px) {
@@ -1580,6 +1596,839 @@ ul li {
   display: block;
   margin: 20px auto;
 }
+
+@media screen and (max-width: 768px) {
+    /* Aplica espaçamento lateral somente na página sitenfse, no bloco "AVISO IMPORTANTE" */
+    body.sitenfse .nfse-projeto {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding-left: 14px;
+        padding-right: 14px;
+        box-sizing: border-box;
+        max-width: calc(100% - 32px);
+    }
+
+    body.sitenfse .nfse-projeto .text-content-wide {
+        margin: 0;
+        padding: 0;
+    }
+
+    body.sitenfse .nfse-projeto .nfse-title {
+        margin: 0 0 12px 0;
+        padding: 0;
+        word-break: break-word;
+    }
+
+    body.sitenfse .nfse-projeto p {
+        margin: 0;
+        padding: 0;
+        word-break: break-word;
+    }
+
+    @media (max-width: 480px) {
+        body.sitenfse .nfse-projeto {
+            margin-left: 12px;
+            margin-right: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+            max-width: calc(100% - 24px);
+        }
+    }
+}
+
+/* ================================
+   RESET LOCAL
+================================ */
+.cnae-consulta * {
+  box-sizing: border-box;
+}
+
+/* ================================
+   CONTAINER PRINCIPAL
+================================ */
+.cnae-consulta {
+  font-family: "Inter", Arial, sans-serif;
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 24px;
+  color: #1f2d3d;
+}
+
+/* ================================
+   TÍTULO
+================================ */
+.cnae-consulta h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2980b9;
+}
+
+/* ================================
+   TABS
+================================ */
+.cnae-consulta .tab {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.cnae-consulta .tab button {
+  background: #ffffff;
+  color: #2980b9;
+  border: 1px solid #2980b9;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cnae-consulta .tab button.active {
+  background: #2980b9;
+  color: #ffffff;
+}
+
+/* ================================
+   CARD / CONTEÚDO
+================================ */
+.cnae-consulta .tabcontent {
+  background: linear-gradient(
+    135deg,
+    #2980b9 0%,
+    #3fa0db 100%
+  );
+
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 30px;
+
+  /* efeito moderno de card */
+  box-shadow: 0 20px 40px rgba(41, 128, 185, 0.25);
+}
+
+
+/* ================================
+   LINHA DE FORMULÁRIO
+================================ */
+.cnae-consulta .form-linha {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+
+
+/* ================================
+   INPUTS
+================================ */
+.cnae-consulta .row {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+
+.cnae-consulta label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.cnae-consulta input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border-radius: 14px;
+  border: 1px solid #dce3ec;
+  background: #f9fbfd;
+  transition: all 0.2s ease;
+}
+
+.cnae-consulta input:focus {
+  outline: none;
+  border-color: #2980b9;
+  background: #ffffff;
+}
+
+/* ================================
+   AUTOCOMPLETE (CORRIGIDO)
+================================ */
+.cnae-consulta .autocomplete ul {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #dce3ec;
+
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+
+  list-style: none;
+  padding: 6px 0;
+  margin: 0;
+
+  display: none;
+}
+
+/* só aparece quando tiver conteúdo */
+.cnae-consulta .autocomplete ul.show {
+  display: block;
+}
+
+.cnae-consulta .autocomplete ul li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cnae-consulta .autocomplete ul li:hover {
+  background: #eaf4fb;
+}
+
+
+/* ================================
+   BOTÕES
+================================ */
+.cnae-consulta button {
+  padding: 12px 24px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: #2980b9;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.cnae-consulta button:hover {
+  background: #3fa0db;
+}
+
+/* botão limpar */
+.cnae-consulta #limpar {
+  background: #ffffff;
+  color: #2980b9;
+  border: 1px solid #2980b9;
+  margin-bottom: 20px;
+}
+
+.cnae-consulta #limpar:hover {
+  background: #eaf4fb;
+}
+
+/* ================================
+   TABELA
+================================ */
+.cnae-consulta table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.cnae-consulta thead {
+  background: #2980b9;
+}
+
+.cnae-consulta th {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cnae-consulta th,
+.cnae-consulta td {
+  padding: 14px;
+  font-size: 14px;
+}
+
+.cnae-consulta tbody tr {
+  background: #ffffff;
+}
+
+.cnae-consulta tbody tr:nth-child(even) {
+  background: #f7faff;
+}
+
+.cnae-consulta tbody tr:hover {
+  background: #eaf4fb;
+}
+
+.cnae-consulta td {
+  border-top: 1px solid #eef2f7;
+}
+
+/* ================================
+   RESPONSIVO
+================================ */
+@media (max-width: 768px) {
+  .cnae-consulta h1 {
+    font-size: 26px;
+  }
+
+  .cnae-consulta .form-linha {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cnae-consulta .tabcontent {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cnae-consulta .form-linha {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ================================
+   TABELA COM SCROLL (UX)
+================================ */
+
+/* corpo da tabela rolável */
+.cnae-consulta tbody {
+  display: block;
+  max-height: 550px; /* 3 linhas visíveis */
+  overflow-y: auto;
+  overflow-x: clip; 
+}
+
+/* mantém cabeçalho fixo */
+.cnae-consulta thead,
+.cnae-consulta tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Aumenta a largura da coluna "Descrição LC116" */
+.cnae-consulta table th:nth-child(4),
+.cnae-consulta table td:nth-child(4) {
+  width: 35%;
+}
+
+.cnae-consulta table {
+  overflow-x: hidden;
+}
+
+/* Tabela da Consulta por Descrição NBS */
+#resultadoDescNBS table {
+  table-layout: fixed;
+}
+
+#resultadoDescNBS th,
+#resultadoDescNBS td {
+  vertical-align: top;       /* 🔥 ESSENCIAL */
+  padding: 6px 10px;         /* reduz altura */
+  line-height: 1.35;         /* compacta texto */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+#resultadoDescNBS td:nth-child(6) {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;     /* mostra até 4 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+/* Texto truncado */
+.desc-truncada {
+  max-height: 72px; /* aprox. 3 linhas */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ver mais inline */
+.ver-mais-link {
+  color: #0d6efd;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.ver-mais-link:hover {
+  text-decoration: underline;
+}
+
+
+.cnae-consulta #limpar-nbs {
+  background: #ffffff;
+  color: #2980b9;
+  border: 1px solid #2980b9;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.cnae-consulta #limpar-lc116 {
+  background: #ffffff;
+  color: #2980b9;
+  border: 1px solid #2980b9;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* ================================
+   TABELA – Consulta por Descrição LC116
+================================= */
+
+.cnae-consulta #descricao table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ================================
+   HEADER
+================================= */
+.cnae-consulta #descricao thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ================================
+   BODY COM SCROLL
+================================= */
+.cnae-consulta #descricao tbody {
+  display: block;
+  max-height: 550px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Linhas do body */
+.cnae-consulta #descricao tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ================================
+   CÉLULAS GERAIS
+================================= */
+.cnae-consulta #descricao th,
+.cnae-consulta #descricao td {
+  box-sizing: border-box;
+  padding: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* ================================
+   LARGURA DAS COLUNAS
+   (HEADER E BODY IGUAIS)
+================================= */
+.cnae-consulta #descricao th:nth-child(1),
+.cnae-consulta #descricao td:nth-child(1) { width: 10%; }  /* LC116 */
+
+.cnae-consulta #descricao th:nth-child(2),
+.cnae-consulta #descricao td:nth-child(2) { width: 35%; }  /* Desc LC116 */
+
+.cnae-consulta #descricao th:nth-child(3),
+.cnae-consulta #descricao td:nth-child(3) { width: 10%; }  /* CNAE */
+
+.cnae-consulta #descricao th:nth-child(4),
+.cnae-consulta #descricao td:nth-child(4) { width: 15%; }  /* Desc CNAE */
+
+.cnae-consulta #descricao th:nth-child(5),
+.cnae-consulta #descricao td:nth-child(5) { width: 10%; }  /* NBS */
+
+.cnae-consulta #descricao th:nth-child(6),
+.cnae-consulta #descricao td:nth-child(6) { width: 20%; }  /* Desc NBS */
+
+/* ================================
+   ALINHAMENTO CORRETO
+================================= */
+
+/* ---- CÓDIGOS CENTRALIZADOS ---- */
+.cnae-consulta #descricao thead th:nth-child(1),
+.cnae-consulta #descricao thead th:nth-child(3),
+.cnae-consulta #descricao thead th:nth-child(5),
+.cnae-consulta #descricao tbody td:nth-child(1),
+.cnae-consulta #descricao tbody td:nth-child(3),
+.cnae-consulta #descricao tbody td:nth-child(5) {
+  text-align: center;
+}
+
+/* ---- DESCRIÇÕES À ESQUERDA ---- */
+.cnae-consulta #descricao thead th:nth-child(2),
+.cnae-consulta #descricao thead th:nth-child(4),
+.cnae-consulta #descricao thead th:nth-child(6),
+.cnae-consulta #descricao tbody td:nth-child(2),
+.cnae-consulta #descricao tbody td:nth-child(4),
+.cnae-consulta #descricao tbody td:nth-child(6) {
+  text-align: left;
+}
+
+/* ================================
+   AJUSTE DE SCROLL (ALINHA HEADER)
+================================= */
+.cnae-consulta #descricao thead {
+  padding-right: 15px;
+}
+
+/* Centralizar SOMENTE o texto da legenda "Descrição LC116" */
+.cnae-consulta #descricao thead th:nth-child(2) {
+  text-align: center;
+}
+
+/* ================================
+   TABELA – Consulta por Descrição NBS
+   Centralizar SOMENTE resultados
+================================ */
+
+/* NBS */
+#descricaoNBS tbody td:nth-child(1) {
+  text-align: center;
+}
+
+/* CNAE */
+#descricaoNBS tbody td:nth-child(3) {
+  text-align: center;
+}
+
+/* LC116 */
+#descricaoNBS tbody td:nth-child(5) {
+  text-align: center;
+}
+
+/* Garantir descrições à esquerda */
+#descricaoNBS tbody td:nth-child(2),
+#descricaoNBS tbody td:nth-child(4),
+#descricaoNBS tbody td:nth-child(6) {
+  text-align: left;
+}
+
+/* ==========================================
+   Consulta por Descrição NBS
+   Ajuste REAL de padding (empurrar à esquerda)
+========================================== */
+
+/* NBS */
+.cnae-consulta #descricaoNBS table tbody#resultadoDescNBS td:nth-child(1) {
+  padding-left: 8px !important;
+  padding-right: 6px !important;
+  text-align: center;
+}
+
+/* CNAE */
+.cnae-consulta #descricaoNBS table tbody#resultadoDescNBS td:nth-child(3) {
+  padding-left: 14px !important;
+  padding-right: 6px !important;
+  text-align: center;
+}
+
+/* LC116 */
+.cnae-consulta #descricaoNBS table tbody#resultadoDescNBS td:nth-child(5) {
+  padding-left: 28px !important;
+  padding-right: 6px !important;
+  text-align: center;
+}
+
+h7 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #297fb900;
+  position: absolute;
+  
+}
+
+@media (max-width: 768px) {
+
+  /* Container que permite scroll lateral */
+  .cnae-consulta .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* A tabela pode ser maior que a tela */
+  .cnae-consulta table {
+    min-width: 900px; /* ajuste conforme o conteúdo */
+    border-collapse: collapse;
+  }
+
+  /* Evita quebra feia de texto */
+  .cnae-consulta th,
+  .cnae-consulta td {
+    white-space: nowrap;
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* 🔥 LIBERA A ALTURA REAL NO MOBILE */
+  .cnae-consulta tbody {
+    display: table-row-group !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 🔥 GARANTE QUE O CARD CRESÇA */
+  .cnae-consulta .tabcontent {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 🔥 SCROLL HORIZONTAL SÓ NO WRAPPER */
+  .cnae-consulta .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cnae-consulta table {
+    min-width: 900px;
+    overflow-x: visible !important;
+  }
+
+  /* 🔥 TEXTO PODE QUEBRAR (SENÃO ESTOURA ALTURA) */
+  .cnae-consulta td {
+    white-space: normal;
+  }
+
+  .cnae-consulta th {
+    white-space: nowrap;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  body.page-scroll-fix {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .mobile-scroll-page {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .cnae-consulta {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tabcontent {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .table-mobile-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-mobile-scroll table {
+    min-width: 900px;
+    white-space: nowrap;
+  }
+
+}
+
+
+/* 🔥 FORÇA FLUXO NORMAL DA SECTION CNAE */
+.cnae-consulta {
+  position: static !important;
+  display: block;
+  width: 100%;
+  float: none !important;
+  clear: both;
+}
+
+/* 🔥 GARANTE QUE NENHUM PAI QUEBRE O FLUXO */
+body.page-scroll-fix,
+.mobile-scroll-page {
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-y: visible !important;
+}
+
+/* Só para mobile */
+@media (max-width: 768px) {
+  /* Seleciona a coluna de Descrição NBS na tabela Consulta por Código */
+  #resultadoCodigo td:nth-child(6),
+  #resultadoCodigo th:nth-child(6) {
+    max-width: 150px;  /* ajuste o valor conforme precisar */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* ================================
+     WRAPPER DE SCROLL HORIZONTAL
+  ================================= */
+  .table-mobile-scroll {
+    width: 100%;
+    overflow-x: auto; /* scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-mobile-scroll table {
+    min-width: 900px;  /* mantém largura das colunas */
+    border-collapse: separate;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CABEÇALHO FIXO
+  ================================= */
+  .table-mobile-scroll thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CORPO DA TABELA COM SCROLL VERTICAL
+  ================================= */
+  .table-mobile-scroll tbody {
+    display: block;           /* ESSENCIAL para scroll vertical */
+    max-height: calc(5 * 48px); /* mostra 5 linhas */
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .table-mobile-scroll tbody tr {
+    display: table;           /* mantém alinhamento das colunas */
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CÉLULAS
+  ================================= */
+  .table-mobile-scroll th,
+  .table-mobile-scroll td {
+    padding: 12px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* apenas para códigos */
+  }
+
+  /* Quebra de linha apenas nas colunas de descrição */
+  .table-mobile-scroll td:nth-child(2),
+  .table-mobile-scroll td:nth-child(4),
+  .table-mobile-scroll td:nth-child(6) {
+    white-space: normal;
+  }
+
+  /* ================================
+     SCROLL VISUAL DO TBODY
+  ================================= */
+  .table-mobile-scroll tbody::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .table-mobile-scroll tbody::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+
+  .table-mobile-scroll tbody::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* ================================
+     SOBRESCREVE REGRAS CONFLITANTES
+  ================================= */
+  /* Força o tbody a respeitar o scroll de 5 linhas */
+  .cnae-consulta tbody {
+    display: block !important;
+    max-height: calc(5 * 48px) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Garante que o card não force altura infinita */
+  .cnae-consulta .tabcontent {
+    height: auto !important;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Quebra de texto nas colunas de descrição */
+  .cnae-consulta td:nth-child(2),
+  .cnae-consulta td:nth-child(4),
+  .cnae-consulta td:nth-child(6) {
+    white-space: normal;
+  }
+
+  /* Limita largura da coluna Descrição NBS (Consulta por Código) */
+  #resultadoCodigo td:nth-child(6),
+  #resultadoCodigo th:nth-child(6) {
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+/* Texto informativo apenas no mobile */
+@media (max-width: 768px) {
+  .mobile-info-text {
+    display: block;          /* mostra somente no mobile */
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 6px;         /* espaço do botão até o texto */
+    font-weight: 500;
+  }
+}
+
+/* Oculta no desktop */
+@media (min-width: 769px) {
+  .mobile-info-text {
+    display: none;
+  }
+}
+
+
+
+
+
 
 
 
