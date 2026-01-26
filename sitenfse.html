@@ -84,7 +84,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
-<body class="sitenfse">
+<body class="sitenfse page-scroll-fix">
 
     <nav class="main-menu">
         <img src="img/logonova.png" alt="Logo Duque de Caxias" class="logo">
@@ -201,132 +201,145 @@
   
     <hr class="section-divider" style="margin: 30px 0px 0px;">
 
+<section class="mobile-scroll-wrapper">
+  <main class="mobile-scroll-page">
+
     <div class="cnae-consulta">
 
-  <h1>Consulta CNAE, LC116 e NBS</h1>
+      <h1>Consulta CNAE, LC116 e NBS</h1>
 
-  <!-- TABS -->
-  <div class="tab">
-    <button class="tablinks active" onclick="openTab(event,'codigo')">
-      Consulta por Código
-    </button>
-    <button class="tablinks" onclick="openTab(event,'descricao')">
-      Consulta por Descrição LC116
-    </button>
-    <button class="tablinks" onclick="openTab(event, 'descricaoNBS')">
-  Consulta por Descrição NBS
-</button>
-
-  </div>
-
-  <!-- ===============================
-       TAB: CONSULTA POR CÓDIGO
-  =============================== -->
- <div id="codigo" class="tabcontent">
-
-
-    <!-- LINHA DE INPUTS -->
-    <div class="form-linha">
-
-      <div class="row autocomplete">
-        <label for="cnae">CNAE:</label>
-        <input id="cnae" placeholder="Digite o CNAE" autocomplete="off">
-        <ul id="cnaeList"></ul>
+      <!-- TABS -->
+      <div class="tab">
+        <button class="tablinks active" onclick="openTab(event,'codigo')">
+          Consulta por Código
+        </button>
+        <button class="tablinks" onclick="openTab(event,'descricao')">
+          Consulta por Descrição LC116
+        </button>
+        <button class="tablinks" onclick="openTab(event,'descricaoNBS')">
+          Consulta por Descrição NBS
+        </button>
       </div>
 
-      <div class="row autocomplete">
-        <label for="lc116">LC116:</label>
-        <input id="lc116" placeholder="Digite o LC116" autocomplete="off">
-        <ul id="lc116List"></ul>
+      <!-- ===============================
+           TAB: CONSULTA POR CÓDIGO
+      =============================== -->
+      <div id="codigo" class="tabcontent active-tab">
+
+        <div class="form-linha">
+
+          <div class="row autocomplete">
+            <label for="cnae">CNAE:</label>
+            <input id="cnae" placeholder="Digite o CNAE" autocomplete="off">
+            <ul id="cnaeList"></ul>
+          </div>
+
+          <div class="row autocomplete">
+            <label for="lc116">LC116:</label>
+            <input id="lc116" placeholder="Digite o LC116" autocomplete="off">
+            <ul id="lc116List"></ul>
+          </div>
+
+          <div class="row autocomplete">
+            <label for="nbs">NBS:</label>
+            <input id="nbs" placeholder="Digite o NBS" autocomplete="off">
+            <ul id="nbsList"></ul>
+          </div>
+
+        </div>
+
+        <button id="limpar">Limpar</button>
+
+        <!-- WRAPPER DE SCROLL -->
+        <div class="table-mobile-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>CNAE</th>
+                <th>Descrição CNAE</th>
+                <th>LC116</th>
+                <th>Descrição LC116</th>
+                <th>NBS</th>
+                <th>Descrição NBS</th>
+              </tr>
+            </thead>
+            <tbody id="resultadoCodigo"></tbody>
+          </table>
+        </div>
+
       </div>
 
-      <div class="row autocomplete">
-        <label for="nbs">NBS:</label>
-        <input id="nbs" placeholder="Digite o NBS" autocomplete="off">
-        <ul id="nbsList"></ul>
+      <!-- ===============================
+           TAB: CONSULTA POR DESCRIÇÃO LC116
+      =============================== -->
+      <div id="descricao" class="tabcontent">
+
+        <div class="row autocomplete">
+          <label for="buscaLc">Descrição LC116:</label>
+          <input id="buscaLc" placeholder="Digite a descrição da LC116" autocomplete="off">
+          <ul id="buscaLcList"></ul>
+        </div>
+
+        <button id="limpar-lc116">Limpar</button>
+
+        <div class="table-mobile-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>LC116</th>
+                <th>Descrição LC116</th>
+                <th>CNAE</th>
+                <th>Descrição CNAE</th>
+                <th>NBS</th>
+                <th>Descrição NBS</th>
+              </tr>
+            </thead>
+            <tbody id="resultadoDesc"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ===============================
+           TAB: CONSULTA POR DESCRIÇÃO NBS
+      =============================== -->
+      <div id="descricaoNBS" class="tabcontent">
+
+        <div class="row autocomplete">
+          <label for="buscaNbs">Descrição NBS:</label>
+          <input
+            type="text"
+            id="buscaNbs"
+            placeholder="Digite a descrição do NBS"
+            autocomplete="off"
+          />
+          <ul id="buscaNbsList"></ul>
+        </div>
+
+        <button id="limpar-nbs">Limpar</button>
+
+        <div class="table-mobile-scroll">
+          <table class="resultado">
+            <thead>
+              <tr>
+                <th>NBS</th>
+                <th>Descrição NBS</th>
+                <th>CNAE</th>
+                <th>Descrição CNAE</th>
+                <th>LC116</th>
+                <th>Descrição LC116</th>
+              </tr>
+            </thead>
+            <tbody id="resultadoDescNBS"></tbody>
+          </table>
+        </div>
+
       </div>
 
     </div>
 
-    <!-- BOTÃO -->
-    <button id="limpar">Limpar</button>
-
-    <!-- TABELA -->
-    <table>
-      <thead>
-        <tr>
-          <th>CNAE</th>
-          <th>Descrição CNAE</th>
-          <th>LC116</th>
-          <th>Descrição LC116</th>
-          <th>NBS</th>
-          <th>Descrição NBS</th>
-        </tr>
-      </thead>
-      <tbody id="resultadoCodigo"></tbody>
-    </table>
-  </div>
-
-  <!-- ===============================
-       TAB: CONSULTA POR DESCRIÇÃO
-  =============================== -->
-  <div id="descricao" class="tabcontent">
-
-    <div class="row autocomplete">
-      <label for="buscaLc">Descrição LC116:</label>
-      <input id="buscaLc" placeholder="Digite a descrição da LC116" autocomplete="off">
-      <ul id="buscaLcList"></ul>
-    </div>
-    <button id="limpar-lc116">Limpar</button>
-
-
-    <table>
-      <thead>
-        <tr>
-          <th>LC116</th>
-          <th>Descrição LC116</th>
-          <th>CNAE</th>
-          <th>Descrição CNAE</th>
-          <th>NBS</th>
-          <th>Descrição NBS</th>
-        </tr>
-      </thead>
-      <tbody id="resultadoDesc"></tbody>
-    </table>
-  </div>
-
-  <div id="descricaoNBS" class="tabcontent">
-
-  <div class="row autocomplete">
-    <label for="buscaNbs">Descrição NBS:</label>
-    <input
-      type="text"
-      id="buscaNbs"
-      placeholder="Digite a descrição do NBS"
-      autocomplete="off"
-    />
-    <ul id="buscaNbsList"></ul>
-  </div>
-
-  <!-- BOTÃO LIMPAR EXCLUSIVO fora da div autocomplete -->
-  <button id="limpar-nbs">Limpar</button>
-
-  <table class="resultado">
-    <thead>
-    <tr>
-      <th>NBS</th>
-      <th>Descrição NBS</th>
-      <th>CNAE</th>
-      <th>Descrição CNAE</th>
-      <th>LC116</th>
-      <th>Descrição LC116</th>
-    </tr>
-  </thead>
-    </thead>
-    <tbody id="resultadoDescNBS"></tbody>
-  </table>
-
-</div>
+  </main>
+</section>
 
 
 </div>
@@ -501,6 +514,89 @@
       </div>
     </div>
 </div>
+
+<section class="nfse-section nfse-caxias">
+  <h2><i class="fas fa-file-contract" style="font-size: 33px;"></i> Documentação</h2>
+  <div class="alt-grid">
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-file-code"></i></i></div>
+      <h3>Documentação Técnica</h3>
+      <p>
+        Materiais técnicos para equipes de desenvolvimento, incluindo APIs, leiautes e especificações.
+      </p>
+      <a href="https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica" class="nfse-link green">Ver Documentação</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-table"></i>
+</i></div>
+      <h3>Tabela CST/cClassTrib</h3>
+      <p>
+        Tabela CST e Classificação Tributária (cClassTrib).
+      </p>
+      <a href="https://dfe-portal.svrs.rs.gov.br/DFE/ClassificacaoTributaria" class="nfse-link green">Ver Tabela</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-table"></i></div>
+      <h3>Tabela de Crédito Presumido</h3>
+      <p>
+        Tabela de Crédito Presumido (cPres).
+      </p>
+      <a href="https://dfe-portal.svrs.rs.gov.br/DFE/TabelaCreditoPresumido" class="nfse-link green">Tabela CST/cClassTrib</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-table"></i></div>
+      <h3>Tabela NCM-SH</h3>
+      <p>
+        Tabela de Nomenclatura Comum do Mercosul (NCM) – SH (Sistema Harmonizado).
+      </p>
+      <a href="https://portalunico.siscomex.gov.br/classif/#/sumario?perfil=publico" class="nfse-link green">Ver Documentação</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-table"></i></div>
+      <h3>Tabela NBS</h3>
+      <p>
+        Tabela – Nomenclatura Brasileira de Serviços, Intangíveis e Outras Operações(NBS).
+      </p>
+      <a href="https://www.gov.br/mdic/pt-br/assuntos/sdic/comercio-e-servicos/nbs-nomenclatura-brasileira-de-servicos" class="nfse-link green">Ver Tabela</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-table"></i></div>
+      <h3>Tabela cTribMun x cTribNac</h3>
+<p>
+  Tabela – Correspondência entre códigos de tributos municipais (cTribMun) e tributos nacionais (cTribNac).
+</p>
+
+      <a href="csv/CORRELACAO_TRIBMUN_TRIBNAC_DUQUEDECAXIAS.csv" class="nfse-link green">Ver Tabela</a> 
+    </div>
+
+    <div class="alt-card modern-card">
+      <div class="icon-circle bg-caxias-blue"><i class="fas fa-file-alt"></i></div>
+      <h3>Informe Técnico</h3>
+      <p>
+        Informe Técnico RT 2025.002 – Tabelas Código de Classificação Tributária, Indicadores CST e Classificação do Crédito Presumido IBS/CBS.
+      </p>
+      <a href="https://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=zjSr04nEi/w=" class="nfse-link green">Tabela CST/cClassTrib</a> 
+    </div>
+  </div>
+</section>
+
+  <hr class="section-divider" style="margin: 30px 0px 0px;">
+
+ <div class="text-content-after-cards">
+            <br>
+   
+
+        </div>
+
+
+  </div>
+</section>
+
       <section class="nfse-section nfse-caxias">
     <h2><i class="fas fa-info-circle" style="font-size: 33px;"></i> O que é a nova NFS-e Nacional?  </h2>
     <div class="alt-grid">
@@ -518,6 +614,8 @@
     </p>
   </div>
 </section>
+
+
 
   <hr class="section-divider" style="margin: 30px 0px 0px;">
 

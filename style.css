@@ -528,6 +528,11 @@
             background-color: #41A100 !important;
         }
 
+        .option-card--vigilancia .option-icon {
+            width: 78px !important;
+            height: 78px !important;
+        }
+
         .option-card i {
             font-size: 2.5em;
             margin-bottom: 15px;
@@ -2139,6 +2144,285 @@ ul li {
   padding-left: 28px !important;
   padding-right: 6px !important;
   text-align: center;
+}
+
+h7 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #297fb900;
+  position: absolute;
+  
+}
+
+@media (max-width: 768px) {
+
+  /* Container que permite scroll lateral */
+  .cnae-consulta .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* A tabela pode ser maior que a tela */
+  .cnae-consulta table {
+    min-width: 900px; /* ajuste conforme o conteúdo */
+    border-collapse: collapse;
+  }
+
+  /* Evita quebra feia de texto */
+  .cnae-consulta th,
+  .cnae-consulta td {
+    white-space: nowrap;
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* 🔥 LIBERA A ALTURA REAL NO MOBILE */
+  .cnae-consulta tbody {
+    display: table-row-group !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 🔥 GARANTE QUE O CARD CRESÇA */
+  .cnae-consulta .tabcontent {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 🔥 SCROLL HORIZONTAL SÓ NO WRAPPER */
+  .cnae-consulta .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cnae-consulta table {
+    min-width: 900px;
+    overflow-x: visible !important;
+  }
+
+  /* 🔥 TEXTO PODE QUEBRAR (SENÃO ESTOURA ALTURA) */
+  .cnae-consulta td {
+    white-space: normal;
+  }
+
+  .cnae-consulta th {
+    white-space: nowrap;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  body.page-scroll-fix {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .mobile-scroll-page {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .cnae-consulta {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tabcontent {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .table-mobile-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-mobile-scroll table {
+    min-width: 900px;
+    white-space: nowrap;
+  }
+
+}
+
+
+/* 🔥 FORÇA FLUXO NORMAL DA SECTION CNAE */
+.cnae-consulta {
+  position: static !important;
+  display: block;
+  width: 100%;
+  float: none !important;
+  clear: both;
+}
+
+/* 🔥 GARANTE QUE NENHUM PAI QUEBRE O FLUXO */
+body.page-scroll-fix,
+.mobile-scroll-page {
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-y: visible !important;
+}
+
+/* Só para mobile */
+@media (max-width: 768px) {
+  /* Seleciona a coluna de Descrição NBS na tabela Consulta por Código */
+  #resultadoCodigo td:nth-child(6),
+  #resultadoCodigo th:nth-child(6) {
+    max-width: 150px;  /* ajuste o valor conforme precisar */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  /* ================================
+     WRAPPER DE SCROLL HORIZONTAL
+  ================================= */
+  .table-mobile-scroll {
+    width: 100%;
+    overflow-x: auto; /* scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-mobile-scroll table {
+    min-width: 900px;  /* mantém largura das colunas */
+    border-collapse: separate;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CABEÇALHO FIXO
+  ================================= */
+  .table-mobile-scroll thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CORPO DA TABELA COM SCROLL VERTICAL
+  ================================= */
+  .table-mobile-scroll tbody {
+    display: block;           /* ESSENCIAL para scroll vertical */
+    max-height: calc(5 * 48px); /* mostra 5 linhas */
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .table-mobile-scroll tbody tr {
+    display: table;           /* mantém alinhamento das colunas */
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ================================
+     CÉLULAS
+  ================================= */
+  .table-mobile-scroll th,
+  .table-mobile-scroll td {
+    padding: 12px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* apenas para códigos */
+  }
+
+  /* Quebra de linha apenas nas colunas de descrição */
+  .table-mobile-scroll td:nth-child(2),
+  .table-mobile-scroll td:nth-child(4),
+  .table-mobile-scroll td:nth-child(6) {
+    white-space: normal;
+  }
+
+  /* ================================
+     SCROLL VISUAL DO TBODY
+  ================================= */
+  .table-mobile-scroll tbody::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .table-mobile-scroll tbody::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+  }
+
+  .table-mobile-scroll tbody::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* ================================
+     SOBRESCREVE REGRAS CONFLITANTES
+  ================================= */
+  /* Força o tbody a respeitar o scroll de 5 linhas */
+  .cnae-consulta tbody {
+    display: block !important;
+    max-height: calc(5 * 48px) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Garante que o card não force altura infinita */
+  .cnae-consulta .tabcontent {
+    height: auto !important;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Quebra de texto nas colunas de descrição */
+  .cnae-consulta td:nth-child(2),
+  .cnae-consulta td:nth-child(4),
+  .cnae-consulta td:nth-child(6) {
+    white-space: normal;
+  }
+
+  /* Limita largura da coluna Descrição NBS (Consulta por Código) */
+  #resultadoCodigo td:nth-child(6),
+  #resultadoCodigo th:nth-child(6) {
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+}
+
+/* Texto informativo apenas no mobile */
+@media (max-width: 768px) {
+  .mobile-info-text {
+    display: block;          /* mostra somente no mobile */
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 6px;         /* espaço do botão até o texto */
+    font-weight: 500;
+  }
+}
+
+/* Oculta no desktop */
+@media (min-width: 769px) {
+  .mobile-info-text {
+    display: none;
+  }
 }
 
 
