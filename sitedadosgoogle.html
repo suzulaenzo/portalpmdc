@@ -1,0 +1,221 @@
+<html lang="pt-BR">
+    <!-- Desenvolvido por -->
+         <!-- Rafael Mello (github/RafaelLMello) -->
+          <!-- e Enzo Suzula (github/suzulaenzo) -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PMDC - Portal do Contribuinte</title>
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <meta name="description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PW2EKQ9KBH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PW2EKQ9KBH');
+        </script>
+
+  <!-- Open Graph (Facebook, LinkedIn etc) -->
+        <meta property="og:title" content="PMDC - Portal do Contribuinte" />
+        <meta property="og:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta property="og:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+        <meta property="og:url" content="https://portalpmdc.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PMDC - Portal do Contribuinte" />
+        <meta name="twitter:description" content="Portal do Contribuinte: Sua plataforma para acompanhar tributos, consultas e serviços públicos de forma prática e segura." />
+        <meta name="twitter:image" content="https://portalpmdc.vercel.app/img/secfazenda.png" />
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <script src="https://vilibras.gov.br/app/vilibras.js"></script>
+        <div id="vlibras">
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        </div>
+    </head>
+<body>
+
+    <nav class="main-menu">
+        <img src="img/logonova.png" alt="Logo Duque de Caxias" class="logo">
+        <div class="menu-links">
+            <a href="index.html">Página Inicial</a>
+            <a href="sitelegislacao.html">Legislação</a>
+            <a href="siteformularios.html">Formulários</a> 
+            <a href="siteplantaofiscal.html">Fale conosco</a>
+        </div>
+    </nav>
+
+    <div class="page-title">
+        <h1>Portal do Contribuinte</h1>
+    </div>
+
+    <div class="search-container">
+    <form class="search-form" onsubmit="return false;">
+        <input type="text" class="search-input" id="searchInput" placeholder="O que você procura?">
+        <button type="submit" class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+    <!-- Lista de resultados -->
+    <div id="searchResults"></div>
+</div>
+
+<div class="filtro">
+  <select id="mesSelect">
+    <option value="mar">Março 2026</option>
+    <option value="fev">Fevereiro 2026</option>
+    <option value="jan">Janeiro 2026</option>
+    <option value="dez">Dezembro 2025</option>
+    <option value="nov">Novembro 2025</option>
+    <option value="out">Outubro 2025</option>
+    <option value="all">Desde o lançamento</option>
+  </select>
+</div>
+
+<div id="visao-geral" class="reveal"></div>
+
+<section class="analytics-dashboard">
+
+  <h1>Dados - Março 2026</h1>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <div class="card">
+      <h3>Acessos Totais</h3>
+      <p class="counter" data-target="67452">0</p>
+    </div>
+
+    <div class="card destaque">
+      <h3>IPTU (Mais acessado)</h3>
+      <p class="counter" data-target="31568">0</p>
+      <span>46,8%</span>
+    </div>
+
+    <div class="card">
+      <h3>Eventos (IPTU)</h3>
+      <p class="counter" data-target="102519">0</p>
+      <span>cliques</span>
+    </div>
+
+  </div>
+
+  <!-- SEÇÃO ANALÍTICA AVANÇADA -->
+<div class="analytics-detalhado">
+
+  <!-- PÁGINAS -->
+  <div class="bloco">
+    <h2>Páginas Mais Acessadas</h2>
+
+    <div class="ranking">
+      <div class="item">
+        <span>IPTU</span>
+        <div class="barra"><div style="width:46.8%"></div></div>
+        <b>31.568</b>
+      </div>
+
+      <div class="item">
+        <span>HOME</span>
+        <div class="barra"><div style="width:16.65%"></div></div>
+        <b>11.234</b>
+      </div>
+
+      <div class="item">
+        <span>NFSE</span>
+        <div class="barra"><div style="width:13.78%"></div></div>
+        <b>9.297</b>
+      </div>
+
+      <div class="item">
+        <span>ISS</span>
+        <div class="barra"><div style="width:5.4%"></div></div>
+        <b>3.643</b>
+      </div>
+
+      <div class="item">
+        <span>Certidões</span>
+        <div class="barra"><div style="width:4.42%"></div></div>
+        <b>2.980</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUNICÍPIOS -->
+  <div class="bloco">
+    <h2>Municípios com Mais Acessos</h2>
+
+    <div class="ranking">
+      <div class="item">
+        <span>Duque de Caxias</span>
+        <div class="barra"><div style="width:43.24%"></div></div>
+        <b>29.166</b>
+      </div>
+
+      <div class="item">
+        <span>Rio de Janeiro</span>
+        <div class="barra"><div style="width:29.24%"></div></div>
+        <b>19.723</b>
+      </div>
+
+      <div class="item">
+        <span>São Paulo</span>
+        <div class="barra"><div style="width:6.68%"></div></div>
+        <b>4.506</b>
+      </div>
+
+      <div class="item">
+        <span>Belford Roxo</span>
+        <div class="barra"><div style="width:1.74%"></div></div>
+        <b>1.174</b>
+      </div>
+
+      <div class="item">
+        <span>Magé</span>
+        <div class="barra"><div style="width:1.64%"></div></div>
+        <b>1.106</b>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute('data-target');
+    const current = +counter.innerText;
+
+    const increment = target / 80;
+
+    if (current < target) {
+      counter.innerText = Math.ceil(current + increment);
+      setTimeout(update, 15);
+    } else {
+      counter.innerText = target.toLocaleString('pt-BR');
+    }
+  };
+  update();
+});
+</script>
+
+<script>
+document.querySelectorAll('.barra div').forEach(bar => {
+  const largura = bar.getAttribute('style');
+  bar.style.width = '0';
+
+  setTimeout(() => {
+    bar.style.width = largura.split(':')[1];
+  }, 200);
+});
+</script>
