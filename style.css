@@ -2905,7 +2905,7 @@ body.page-scroll-fix,
 @media (max-width: 768px) {
 
   .search-container {
-    margin-bottom: 50px; /* espaço abaixo da busca */
+    margin-bottom: 35px; /* espaço abaixo da busca */
   }
 
 }
