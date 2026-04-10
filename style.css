@@ -2880,26 +2880,21 @@ body.page-scroll-fix,
   margin-top: 45px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
-  .page-title {
-    height: auto; /* remove altura fixa */
-    padding: 20px 10px; /* dá espaço interno */
+  .pagina-dados .page-title {
+    height: auto;
+    padding: 20px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .page-title h1 {
-    font-size: 1.2rem; /* reduz um pouco */
-    line-height: 1.4; /* evita cortar */
+  .pagina-dados .page-title h1 {
+    font-size: 1.2rem;
+    line-height: 1.4;
     text-align: center;
   }
-
-}
-
-.page-title h1 {
-  font-size: clamp(1.1rem, 4vw, 1.6rem);
 }
 
 @media (max-width: 768px) {
