@@ -53,7 +53,7 @@
     </nav>
 
     <div class="page-title">
-        <h1>Portal do Contribuinte</h1>
+        <h1>Dados - Portal do Contribuinte</h1>
     </div>
 
     <div class="search-container">
@@ -189,33 +189,449 @@
 </section>
 
 <script>
-const counters = document.querySelectorAll('.counter');
+document.addEventListener("DOMContentLoaded", function () {
 
-counters.forEach(counter => {
-  const update = () => {
-    const target = +counter.getAttribute('data-target');
-    const current = +counter.innerText;
+  const dados = {
 
-    const increment = target / 80;
+    out: {
+      titulo: "Outubro 2025",
+      acessos: 21662,
+      iptu: 6439,
+      iptuPerc: "29,72%",
+      eventos: 22609,
 
-    if (current < target) {
-      counter.innerText = Math.ceil(current + increment);
-      setTimeout(update, 15);
-    } else {
-      counter.innerText = target.toLocaleString('pt-BR');
+      paginas: [
+        { nome: "IPTU", valor: 6439, perc: 29.72 },
+        { nome: "HOME", valor: 3957, perc: 18.27 },
+        { nome: "NFSE", valor: 3221, perc: 14.87 },
+        { nome: "Certidões", valor: 1769, perc: 8.17 },
+        { nome: "ISS", valor: 1539, perc: 7.1 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 8386, perc: 38.71 },
+        { nome: "Rio de Janeiro", valor: 5947, perc: 27.45 },
+        { nome: "São Paulo", valor: 1491, perc: 6.88 },
+        { nome: "Niterói", valor: 357, perc: 1.65 },
+        { nome: "Belford Roxo", valor: 313, perc: 1.44 }
+      ]
+    },
+
+    nov: {
+      titulo: "Novembro 2025",
+      acessos: 33463,
+      iptu: 10554,
+      iptuPerc: "31,54%",
+      eventos: 35665,
+
+      paginas: [
+        { nome: "IPTU", valor: 10554, perc: 31.54 },
+        { nome: "NFSE", valor: 6777, perc: 20.25 },
+        { nome: "HOME", valor: 4262, perc: 12.74 },
+        { nome: "Certidões", valor: 2294, perc: 6.86 },
+        { nome: "ISS", valor: 2290, perc: 6.84 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 12576, perc: 37.58 },
+        { nome: "Rio de Janeiro", valor: 9180, perc: 27.43 },
+        { nome: "São Paulo", valor: 2395, perc: 7.16 },
+        { nome: "Niterói", valor: 788, perc: 2.35 },
+        { nome: "São João de Meriti", valor: 790, perc: 2.36 }
+      ]
+    },
+
+    dez: {
+      titulo: "Dezembro 2025",
+      acessos: 36264,
+      iptu: 12198,
+      iptuPerc: "33,64%",
+      eventos: 40620,
+
+      paginas: [
+        { nome: "IPTU", valor: 12198, perc: 33.64 },
+        { nome: "NFSE", valor: 7740, perc: 21.34 },
+        { nome: "HOME", valor: 4290, perc: 11.83 },
+        { nome: "Anistia", valor: 2322, perc: 6.4 },
+        { nome: "ISS", valor: 2305, perc: 6.36 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 14230, perc: 39.24 },
+        { nome: "Rio de Janeiro", valor: 9733, perc: 26.84 },
+        { nome: "São Paulo", valor: 2156, perc: 5.95 },
+        { nome: "Belford Roxo", valor: 748, perc: 2.06 },
+        { nome: "Niterói", valor: 645, perc: 1.78 }
+      ]
+    },
+
+    jan: {
+      titulo: "Janeiro 2026",
+      acessos: 109722,
+      iptu: 54529,
+      iptuPerc: "49,7%",
+      eventos: 175608,
+
+      paginas: [
+        { nome: "IPTU", valor: 54529, perc: 49.7 },
+        { nome: "HOME", valor: 15571, perc: 14.19 },
+        { nome: "NFSE", valor: 10361, perc: 9.44 },
+        { nome: "ISS", valor: 3772, perc: 3.44 },
+        { nome: "Certidões", valor: 2694, perc: 2.46 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 48757, perc: 44.44 },
+        { nome: "Rio de Janeiro", valor: 29401, perc: 26.8 },
+        { nome: "São Paulo", valor: 4742, perc: 4.32 },
+        { nome: "Belford Roxo", valor: 1956, perc: 1.78 },
+        { nome: "São João de Meriti", valor: 1925, perc: 1.75 }
+      ]
+    },
+
+    fev: {
+      titulo: "Fevereiro 2026",
+      acessos: 72468,
+      iptu: 41513,
+      iptuPerc: "57,28%",
+      eventos: 132512,
+
+      paginas: [
+        { nome: "IPTU", valor: 41513, perc: 57.28 },
+        { nome: "HOME", valor: 10389, perc: 14.34 },
+        { nome: "NFSE", valor: 7636, perc: 10.54 },
+        { nome: "ISS", valor: 3162, perc: 4.36 },
+        { nome: "Certidões", valor: 2128, perc: 2.94 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 33318, perc: 45.98 },
+        { nome: "Rio de Janeiro", valor: 18984, perc: 26.2 },
+        { nome: "São Paulo", valor: 3396, perc: 4.69 },
+        { nome: "Belford Roxo", valor: 1354, perc: 1.87 },
+        { nome: "Niterói", valor: 1019, perc: 1.41 }
+      ]
+    },
+
+    mar: {
+      titulo: "Março 2026",
+      acessos: 67452,
+      iptu: 31568,
+      iptuPerc: "46,8%",
+      eventos: 102519,
+
+      paginas: [
+        { nome: "IPTU", valor: 31568, perc: 46.8 },
+        { nome: "HOME", valor: 11234, perc: 16.65 },
+        { nome: "NFSE", valor: 9297, perc: 13.78 },
+        { nome: "ISS", valor: 3643, perc: 5.4 },
+        { nome: "Certidões", valor: 2980, perc: 4.42 }
+      ],
+
+      cidades: [
+        { nome: "Duque de Caxias", valor: 29166, perc: 43.24 },
+        { nome: "Rio de Janeiro", valor: 19723, perc: 29.24 },
+        { nome: "São Paulo", valor: 4506, perc: 6.68 },
+        { nome: "Belford Roxo", valor: 1174, perc: 1.74 },
+        { nome: "Magé", valor: 1106, perc: 1.64 }
+      ]
     }
+
   };
-  update();
-});
-</script>
 
-<script>
-document.querySelectorAll('.barra div').forEach(bar => {
-  const largura = bar.getAttribute('style');
-  bar.style.width = '0';
+  const ordem = ["out","nov","dez","jan","fev","mar"];
 
+  const select = document.getElementById("mesSelect");
+  const dashboard = document.querySelector(".analytics-dashboard");
+  const visaoGeral = document.getElementById("visao-geral");
+
+  select.addEventListener("change", function () {
+    const valor = this.value;
+
+    if (valor === "all") {
+      dashboard.style.display = "none";
+      mostrarResumoGeral();
+    } else {
+      dashboard.style.display = "block";
+      visaoGeral.innerHTML = "";
+      atualizarDashboard(valor);
+    }
+  });
+
+  function atualizarDashboard(mes) {
+    const d = dados[mes];
+
+    document.querySelector(".analytics-dashboard h1").innerText =
+      "Dados - " + d.titulo;
+
+    const cards = document.querySelectorAll(".card");
+
+    cards[0].querySelector(".counter").setAttribute("data-target", d.acessos);
+    cards[1].querySelector(".counter").setAttribute("data-target", d.iptu);
+    cards[1].querySelector("span").innerText = d.iptuPerc;
+    cards[2].querySelector(".counter").setAttribute("data-target", d.eventos);
+
+    atualizarRanking(d.paginas, ".bloco:nth-child(1) .ranking", "pagina");
+    atualizarRanking(d.cidades, ".bloco:nth-child(2) .ranking", "cidade");
+
+    animarContadores();
+  }
+
+  function atualizarRanking(lista, seletor, tipo) {
+  const container = document.querySelector(seletor);
+
+  let soma = 0;
+
+  const html = lista.map(item => {
+    soma += item.perc;
+
+    return `
+      <div class="item">
+        <span>${item.nome}</span>
+        <div class="barra">
+          <div style="width:${item.perc}%"></div>
+        </div>
+        <b>${item.valor.toLocaleString('pt-BR')}</b>
+      </div>
+    `;
+  }).join("");
+
+  // calcula o restante
+  const restante = (100 - soma).toFixed(2);
+
+  const label = tipo === "pagina"
+    ? "Outras páginas"
+    : "Outros municípios";
+
+  container.innerHTML = html + `
+    <div class="item">
+      <span><i>${label}</i></span>
+      <div class="barra">
+        <div style="width:${restante}%"></div>
+      </div>
+      <b>${restante}%</b>
+    </div>
+  `;
+
+  // animação
   setTimeout(() => {
-    bar.style.width = largura.split(':')[1];
-  }, 200);
+    container.querySelectorAll(".barra div").forEach(bar => {
+      const largura = bar.style.width;
+      bar.style.width = "0";
+      setTimeout(() => {
+        bar.style.width = largura;
+      }, 200);
+    });
+  }, 50);
+}
+
+  function mostrarResumoGeral() {
+
+  let totalAcessos = 0;
+  let totalEventos = 0;
+  let maiorMes = { nome: "", valor: 0 };
+  let menorMes = { nome: "", valor: Infinity };
+
+  ordem.forEach(m => {
+    totalAcessos += dados[m].acessos;
+    totalEventos += dados[m].eventos;
+
+    if (dados[m].acessos > maiorMes.valor) {
+      maiorMes = {
+        nome: dados[m].titulo,
+        valor: dados[m].acessos
+      };
+    }
+
+    if (dados[m].acessos < menorMes.valor) {
+      menorMes = {
+        nome: dados[m].titulo,
+        valor: dados[m].acessos
+      };
+    }
+  });
+
+  const media = Math.round(totalAcessos / ordem.length);
+
+  const crescimento =
+    ((dados["mar"].acessos - dados["out"].acessos) / dados["out"].acessos * 100).toFixed(1);
+
+  visaoGeral.innerHTML = `
+    <div class="resumo-geral">
+
+      <div class="hero">
+        <h2 class="counter" data-target="${totalAcessos}">0</h2>
+        <p>Total de acessos desde o lançamento</p>
+      </div>
+
+      <div class="mini-cards">
+
+        <div class="mini-card">
+          <h3 class="counter" data-target="${totalEventos}">0</h3>
+          <span>Interações totais</span>
+        </div>
+
+        <div class="mini-card">
+          <h3>${maiorMes.nome}</h3>
+          <span>Mês com maior acesso</span>
+        </div>
+
+        <div class="mini-card">
+          <h3>${menorMes.nome}</h3>
+          <span>Mês com menor acesso</span>
+        </div>
+
+        <div class="mini-card">
+          <h3 class="counter" data-target="${media}">0</h3>
+          <span>Média mensal</span>
+        </div>
+
+        <div class="mini-card">
+          <h3>${crescimento}%</h3>
+          <span>Crescimento total</span>
+        </div>
+      </div>
+    </div>
+  `;visaoGeral.innerHTML = `
+  
+  <h1>Dados - Desde o Lançamento</h1>
+
+  <div class="resumo-geral">
+
+    <div class="hero">
+      <h2 class="counter" data-target="${totalAcessos}">0</h2>
+      <p>Total de acessos desde o lançamento</p>
+    </div>
+
+    <div class="mini-cards">
+
+      <div class="mini-card">
+        <h3 class="counter" data-target="${totalEventos}">0</h3>
+        <span>Interações totais</span>
+      </div>
+
+      <div class="mini-card">
+        <h3>${maiorMes.nome}</h3>
+        <span>Mês com maior acesso</span>
+      </div>
+
+      <div class="mini-card">
+        <h3>${menorMes.nome}</h3>
+        <span>Mês com menor acesso</span>
+      </div>
+
+      <div class="mini-card">
+        <h3 class="counter" data-target="${media}">0</h3>
+        <span>Média mensal</span>
+      </div>
+
+      <div class="mini-card">
+        <h3>${crescimento}%</h3>
+        <span>Crescimento total</span>
+      </div>
+
+    </div>
+
+   <div class="timeline">
+
+  <h3>Evolução do Portal</h3>
+
+  <div class="timeline-linha">
+    ${ordem.map((m, i) => {
+      const atual = dados[m];
+      const anterior = dados[ordem[i - 1]];
+
+      let variacao = 0;
+      let classe = "";
+      let icone = "➖";
+
+      if (anterior) {
+        variacao = ((atual.acessos - anterior.acessos) / anterior.acessos * 100).toFixed(1);
+
+        if (variacao > 0) {
+          classe = "up";
+          icone = "▲";
+        } else if (variacao < 0) {
+          classe = "down";
+          icone = "▼";
+        }
+      }
+
+      return `
+        <div class="timeline-card">
+          <span class="mes">${atual.titulo.split(" ")[0]}</span>
+
+          <h4>${atual.acessos.toLocaleString('pt-BR')}</h4>
+
+          <div class="variacao ${classe}">
+            ${anterior ? icone + " " + variacao + "%" : "Início"}
+          </div>
+        </div>
+      `;
+    }).join("")}
+  </div>
+</div>
+  `;
+
+  visaoGeral.classList.add("active");
+
+  animarColunas();
+  animarContadores();
+} 
+
+  function animarContadores() {
+    document.querySelectorAll('.counter').forEach(counter => {
+
+      counter.innerText = "0";
+
+      const target = +counter.getAttribute('data-target');
+
+      const update = () => {
+        const current = +counter.innerText;
+        const increment = target / 80;
+
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(update, 15);
+        } else {
+          counter.innerText = target.toLocaleString('pt-BR');
+        }
+      };
+
+      update();
+    });
+  }
+
+  function animarColunas() {
+    const colunas = document.querySelectorAll(".coluna");
+    const max = Math.max(...ordem.map(m => dados[m].acessos));
+
+    colunas.forEach(col => {
+      const valor = col.dataset.valor;
+      const altura = (valor / max) * 100;
+
+      setTimeout(() => {
+        col.style.height = altura + "%";
+      }, 200);
+    });
+  }
+
+  atualizarDashboard("mar");
+
 });
+
+function animarBarrasMeses() {
+  const max = Math.max(...ordem.map(m => dados[m].acessos));
+
+  document.querySelectorAll(".barra-fill").forEach(bar => {
+    const valor = bar.dataset.valor;
+    const largura = (valor / max) * 100;
+
+    setTimeout(() => {
+      bar.style.width = largura + "%";
+    }, 200);
+  });
+}
 </script>
+
+
