@@ -72,6 +72,7 @@
 
 <div class="filtro">
   <select id="mesSelect">
+    <option value="abr">Abril 2026</option>
     <option value="mar">Março 2026</option>
     <option value="fev">Fevereiro 2026</option>
     <option value="jan">Janeiro 2026</option>
@@ -337,11 +338,35 @@ document.addEventListener("DOMContentLoaded", function () {
         { nome: "Belford Roxo", valor: 1174, perc: 1.74 },
         { nome: "Magé", valor: 1106, perc: 1.64 }
       ]
-    }
+    },
+
+      abr: {
+    titulo: "Abril 2026",
+    acessos: 56446,
+    iptu: 22400,
+    iptuPerc: "39,68%",
+    eventos: 70167,
+
+    paginas: [
+      { nome: "IPTU", valor: 22400, perc: 39.68 },
+      { nome: "NFSE", valor: 11759, perc: 20.83 },
+      { nome: "HOME", valor: 9037, perc: 16.01 },
+      { nome: "ISS", valor: 3527, perc: 6.25 },
+      { nome: "Certidões", valor: 2515, perc: 4.46 }
+    ],
+
+    cidades: [
+      { nome: "Duque de Caxias", valor: 22133, perc: 39.21 },
+      { nome: "Rio de Janeiro", valor: 16431, perc: 29.11 },
+      { nome: "São Paulo", valor: 3488, perc: 6.18 },
+      { nome: "Niterói", valor: 898, perc: 1.59 },
+      { nome: "Nova Iguaçu", valor: 898, perc: 1.59 }
+    ]
+  }
 
   };
 
-  const ordem = ["out","nov","dez","jan","fev","mar"];
+  const ordem = ["out","nov","dez","jan","fev","mar", "abr"];
 
   const select = document.getElementById("mesSelect");
   const dashboard = document.querySelector(".analytics-dashboard");
@@ -618,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  atualizarDashboard("mar");
+  atualizarDashboard("abr");
 
 });
 
